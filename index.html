@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jim's Antennas & Security — Franchise Information</title>
+<style>
+  :root{
+    --navy:#16294f;
+    --navy-light:#1d3a6e;
+    --card:rgba(255,255,255,0.06);
+    --card-border:rgba(255,255,255,0.12);
+    --red:#E2231A;
+    --red-bright:#FF4438;
+    --text:#dbe3f3;
+    --text-dim:#9fb0d4;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    background:var(--navy);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:520px; margin:0 auto; }
+
+  /* HERO */
+  .hero-photo{ width:100%; height:55vw; max-height:300px; object-fit:cover; object-position:50% 30%; display:block; }
+  .hero-content{ padding:24px 20px 0; text-align:center; }
+  .logo-badge{ background:#fff; border-radius:16px; padding:14px 18px; width:65%; margin:-40px auto 16px; box-shadow:0 8px 24px rgba(0,0,0,0.35); position:relative; z-index:2; }
+  .logo-badge img{ width:100%; display:block; }
+  h1.title{ font-size:24px; font-weight:800; letter-spacing:1px; }
+  .subtitle{ font-size:12px; font-weight:600; color:var(--text-dim); letter-spacing:1px; margin-top:6px; text-transform:uppercase; }
+
+  /* CTA BAR */
+  .cta-bar{ display:flex; gap:10px; padding:18px 20px; }
+  .cta-btn{ flex:1; text-align:center; padding:13px; border-radius:10px; font-weight:700; font-size:14px; text-decoration:none; }
+  .cta-call{ background:var(--red); color:#fff; }
+  .cta-day{ background:rgba(255,255,255,0.08); color:#fff; border:1px solid var(--card-border); }
+
+  /* SECTION HEADERS */
+  section{ padding:6px 20px 28px; }
+  h2.sec-title{ font-size:19px; font-weight:800; color:#fff; margin-bottom:4px; padding-bottom:8px; border-bottom:2px solid var(--red); }
+  .sec-sub{ font-size:12px; color:var(--text-dim); margin:8px 0 14px; line-height:1.5; }
+
+  /* STAT GRID */
+  .stat-grid{ display:flex; flex-wrap:wrap; justify-content:space-between; margin-top:14px; }
+  .stat-card{ background:var(--card); border:1px solid var(--card-border); border-radius:12px; padding:14px 8px; text-align:center; width:48.5%; margin-bottom:10px; }
+  .stat-num{ font-size:22px; font-weight:800; color:var(--red-bright); }
+  .stat-label{ font-size:10.5px; font-weight:600; color:var(--text); margin-top:4px; line-height:1.3; }
+
+  /* BULLETS */
+  ul.kit{ list-style:none; margin-top:14px; }
+  ul.kit li{ padding-left:18px; position:relative; margin-bottom:12px; font-size:14px; line-height:1.45; }
+  ul.kit li::before{ content:"●"; color:var(--red-bright); position:absolute; left:0; font-size:9px; top:6px; }
+  ul.kit li b{ color:#fff; }
+
+  /* CARDS */
+  .card{ background:var(--card); border:1px solid var(--card-border); border-radius:12px; padding:16px; margin-top:12px; }
+  .card h3{ font-size:15px; color:#fff; margin-bottom:6px; }
+  .card p{ font-size:13px; line-height:1.5; color:#b9c5e0; }
+
+  /* SERVICES */
+  .svc-grid{ display:flex; flex-wrap:wrap; justify-content:space-between; margin-top:14px; }
+  .svc{ background:var(--card); border:1px solid var(--card-border); border-radius:12px; padding:16px 8px; text-align:center; width:48.5%; margin-bottom:10px; }
+  .svc svg{ width:30px; height:30px; margin-bottom:8px; }
+  .svc div.label{ font-size:12px; font-weight:700; color:#fff; line-height:1.3; }
+
+  /* PHOTO STRIP */
+  .photo-strip{ width:100%; height:180px; object-fit:cover; object-position:50% 30%; border-radius:12px; margin-top:14px; display:block; }
+  .photo-strip.shift-up{ object-position:50% 12%; }
+  .photo-caption{ font-size:10px; color:var(--text-dim); margin-top:6px; letter-spacing:0.5px; text-transform:uppercase; }
+
+  /* DIY TABLE */
+  .diy{ margin-top:14px; }
+  .diy-head{ background:var(--red); color:#fff; font-weight:800; font-size:13px; text-align:center; padding:8px; border-radius:8px 8px 0 0; }
+  .diy-row{ display:flex; border-bottom:1px solid var(--card-border); padding:10px 0; }
+  .diy-row:last-child{ border-bottom:none; }
+  .diy-label{ width:32%; font-weight:700; font-size:12px; color:#fff; padding-right:6px; }
+  .diy-yes,.diy-no{ width:34%; font-size:11.5px; line-height:1.35; padding-right:6px; }
+  .diy-yes{ color:var(--text); }
+  .diy-no{ color:var(--red-bright); }
+  .diy-body{ background:var(--card); border:1px solid var(--card-border); border-top:none; border-radius:0 0 8px 8px; padding:6px 10px; }
+
+  /* COST ACCORDION */
+  .accordion{ margin-top:14px; }
+  .acc-item{ background:var(--card); border:1px solid var(--card-border); border-radius:10px; margin-bottom:8px; overflow:hidden; }
+  .acc-header{ display:flex; justify-content:space-between; align-items:center; padding:13px 14px; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  .acc-header .cat{ font-size:13px; font-weight:700; color:#fff; }
+  .acc-header .total{ font-size:13px; font-weight:800; color:var(--red-bright); display:flex; align-items:center; gap:8px; }
+  .acc-header .chev{ transition:transform 0.25s ease; font-size:11px; color:var(--text-dim); }
+  .acc-item.open .chev{ transform:rotate(180deg); }
+  .acc-body{ max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
+  .acc-item.open .acc-body{ max-height:500px; }
+  .acc-body table{ width:100%; border-collapse:collapse; padding:0 14px 12px; display:table; }
+  .acc-body tr td{ padding:5px 14px; font-size:12.5px; border-top:1px solid rgba(255,255,255,0.06); }
+  .acc-body tr td.price{ text-align:right; font-weight:700; color:#fff; white-space:nowrap; }
+
+  .grand-total{ background:rgba(255,255,255,0.08); border:1px solid var(--card-border); border-radius:10px; padding:14px; margin-top:10px; display:flex; justify-content:space-between; align-items:center; }
+  .grand-total .lbl{ font-size:12px; font-weight:700; }
+  .grand-total .amt{ font-size:18px; font-weight:800; color:#fff; }
+  .grand-total.final{ background:var(--red); }
+
+  .poa-row{ background:var(--card); border:1px solid var(--card-border); border-radius:10px; padding:12px 14px; margin-top:10px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .poa-row .lbl{ font-size:13px; font-weight:700; color:#fff; }
+  .poa-row .desc{ font-size:11px; color:var(--text-dim); margin-top:2px; }
+  .poa-row .tag{ background:var(--red); color:#fff; font-size:11px; font-weight:800; padding:4px 10px; border-radius:6px; flex-shrink:0; }
+  .footnote{ font-size:10.5px; color:#7e8eb5; margin-top:10px; }
+
+  .subhead{ font-size:13px; font-weight:800; color:#fff; margin:18px 0 8px; }
+  .fee-row{ background:var(--card); border:1px solid var(--card-border); border-radius:10px; padding:10px 14px; margin-top:8px; display:flex; justify-content:space-between; align-items:center; }
+  .fee-row .lbl{ font-size:12px; font-weight:600; color:#fff; }
+  .fee-row .amt{ font-size:13px; font-weight:700; color:#fff; }
+
+  /* FAQ ACCORDION */
+  .faq-item{ border-bottom:1px solid var(--card-border); padding:14px 0; }
+  .faq-q{ display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:700; color:var(--red-bright); cursor:pointer; }
+  .faq-chev{ font-size:12px; color:var(--text-dim); transition:transform 0.25s ease; flex-shrink:0; margin-left:10px; }
+  .faq-item.open .faq-chev{ transform:rotate(180deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height 0.3s ease; font-size:13px; color:#b9c5e0; line-height:1.5; }
+  .faq-item.open .faq-a{ max-height:200px; padding-top:8px; }
+
+  /* TESTIMONIALS */
+  .testi-scroll{ display:flex; gap:12px; overflow-x:auto; margin-top:14px; padding-bottom:8px; -webkit-overflow-scrolling:touch; }
+  .testi{ background:var(--card); border:1px solid var(--card-border); border-radius:12px; padding:14px; text-align:center; flex:0 0 70%; scroll-snap-align:start; }
+  .testi-scroll{ scroll-snap-type:x mandatory; }
+  .testi img.face{ width:60px; height:60px; object-fit:cover; object-position:50% 25%; border-radius:50%; margin-bottom:8px; }
+  .testi .name{ font-weight:800; color:#fff; font-size:13px; }
+  .testi .quote{ font-size:12px; font-style:italic; color:#b9c5e0; margin-top:6px; line-height:1.4; }
+  .testi .qr{ width:70px; height:70px; margin:10px auto 4px; display:block; border-radius:6px; }
+  .testi .qr-label{ font-size:9px; color:var(--text-dim); font-weight:700; letter-spacing:0.5px; }
+
+  /* TRAINING STEPS */
+  .steps{ margin-top:14px; }
+  .step{ display:flex; gap:12px; margin-bottom:14px; }
+  .step-num{ flex-shrink:0; width:28px; height:28px; border-radius:50%; background:var(--red); color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center; }
+  .step-text{ font-size:13px; line-height:1.5; color:var(--text); padding-top:3px; }
+
+  /* FOOTER / STICKY CTA */
+  footer{ background:var(--navy-light); padding:32px 20px 90px; text-align:center; }
+  footer .logo-badge{ width:55%; margin:0 auto 18px; }
+  footer p{ font-size:13px; line-height:1.6; color:var(--text); margin-bottom:18px; }
+  footer .phone{ font-size:24px; font-weight:800; color:var(--red-bright); }
+  footer .web{ font-size:12px; font-weight:600; color:var(--text-dim); margin-top:8px; }
+
+  .sticky-cta{ position:fixed; bottom:0; left:0; right:0; background:var(--navy-light); border-top:1px solid var(--card-border); padding:10px 16px; display:flex; gap:10px; max-width:520px; margin:0 auto; z-index:50; }
+  .sticky-cta a{ flex:1; text-align:center; padding:12px; border-radius:10px; font-weight:700; font-size:14px; text-decoration:none; }
+  .sticky-cta .call{ background:var(--red); color:#fff; }
+  .sticky-cta .info{ background:rgba(255,255,255,0.08); color:#fff; border:1px solid var(--card-border); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <img class="hero-photo" src="assets/pg6_0_X4.jpg" alt="Jim's Antennas & Security franchisee">
+  <div class="hero-content">
+    <div class="logo-badge"><img src="assets/p1_1_X6.png" alt="Jim's Antennas & Security logo"></div>
+    <h1 class="title">FRANCHISE<br>INFORMATION KIT</h1>
+    <div class="subtitle">A Division of Australia's Favourite Home Services Franchise</div>
+  </div>
+
+  <div class="cta-bar">
+    <a href="tel:0439995000" class="cta-btn cta-call">📞 Call 0439 995 000</a>
+    <a href="#whats-next" class="cta-btn cta-day">Day on the Road</a>
+  </div>
+
+  <!-- WHY JIM'S -->
+  <section>
+    <h2 class="sec-title">Why Jim's Antennas &amp; Security?</h2>
+    <p class="sec-sub">As part of Jim's Group — Australia's largest home services franchise network — you get the backing of a national brand built over 30+ years.</p>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num">94%</div><div class="stat-label">Brand recognition across Australia</div></div>
+      <div class="stat-card"><div class="stat-num">5,000+</div><div class="stat-label">Franchisees nationwide</div></div>
+      <div class="stat-card"><div class="stat-num">500K+</div><div class="stat-label">Inbound leads per year via National Call Centre</div></div>
+      <div class="stat-card"><div class="stat-num">75,000</div><div class="stat-label">New clients generated each year</div></div>
+      <div class="stat-card"><div class="stat-num">4.8★</div><div class="stat-label">Rating from 4,000+ Product Review ratings</div></div>
+      <div class="stat-card"><div class="stat-num">$2,000</div><div class="stat-label">Per week pay-for-work guarantee*</div></div>
+    </div>
+    <ul class="kit">
+      <li><b>Proven system</b> — backed by Australia's largest home services franchise network</li>
+      <li><b>Work where &amp; when you want</b> — build a territory as big as you choose</li>
+      <li><b>Online Franchise Management System</b> — simple day-to-day operations</li>
+      <li><b>Comprehensive in-house training &amp; ongoing support</b> — technical, sales and business</li>
+      <li><b>Group marketing &amp; purchasing discounts</b> — leverage the buying power of 5,000+ franchisees</li>
+      <li><b>Fixed base fees</b> — not a percentage of turnover, so you keep what you earn</li>
+    </ul>
+    <img class="photo-strip" src="assets/team_antenna.jpg" alt="Antenna installation">
+    <div class="photo-caption">Jim's Antennas &amp; Security franchisees on the job</div>
+  </section>
+
+  <!-- WHY A FRANCHISE -->
+  <section>
+    <h2 class="sec-title">Why a Jim's Franchise?</h2>
+    <img class="photo-strip" src="assets/team_group_red.jpg" alt="Jim's Antennas & Security team">
+    <div class="photo-caption">Part of a national network of franchisees</div>
+    <div class="card"><h3>Strong Brand</h3><p>Win more work with one of Australia's most trusted brands — recognised by 94% of Australians, with 4,000+ 5-star Product Review ratings.</p></div>
+    <div class="card"><h3>Comprehensive On-Boarding</h3><p>A mix of on-road time with experienced franchisees, supplier-led technical &amp; sales training and short courses — building confidence in every part of your business from day one.</p></div>
+    <div class="card"><h3>On-Going Support</h3><p>Monthly proactive calls from management, continuous training &amp; development, National Conferences and annual business reviews — you're never alone.</p></div>
+    <div class="card"><h3>Work-Life Balance</h3><p>Spend more time with family (or on the golf course). As a franchisee, you're in complete control of your own schedule.</p></div>
+    <div class="card"><h3>Pay-For-Work Guarantee</h3><p>$2,000/week guarantee* designed as a safety net for your transition into business ownership.</p></div>
+    <div class="card"><h3>Fixed Base Fees</h3><p>Not a percentage of turnover, so you keep what you earn.</p></div>
+
+    <div class="diy">
+      <div class="diy-head">DIY vs. JIM'S</div>
+      <div class="diy-body">
+        <div class="diy-row"><div class="diy-label">Brand</div><div class="diy-no">✘ Build a brand from scratch</div><div class="diy-yes">✔ Win work with an established, trusted brand</div></div>
+        <div class="diy-row"><div class="diy-label">Buying Power</div><div class="diy-no">✘ Negotiate your own pricing</div><div class="diy-yes">✔ Group discounts via preferred suppliers</div></div>
+        <div class="diy-row"><div class="diy-label">Marketing</div><div class="diy-no">✘ Trial-and-error, at your own cost</div><div class="diy-yes">✔ Proven, established strategies</div></div>
+        <div class="diy-row"><div class="diy-label">Support</div><div class="diy-no">✘ Limited resources &amp; support</div><div class="diy-yes">✔ Business &amp; technical support, a phone call away</div></div>
+        <div class="diy-row"><div class="diy-label">Training</div><div class="diy-no">✘ Costly, limited opportunities</div><div class="diy-yes">✔ Ongoing training &amp; development</div></div>
+        <div class="diy-row"><div class="diy-label">Work Guarantee</div><div class="diy-no">✘ No guarantee of enquiries</div><div class="diy-yes">✔ Work available from day one</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL DO -->
+  <section>
+    <h2 class="sec-title">What You'll Do</h2>
+    <p class="sec-sub">As a Jim's Antennas &amp; Security franchisee you'll be equipped with all the skills, tools and ongoing training to deliver:</p>
+    <div class="svc-grid">
+      <div class="svc"><svg viewBox="0 0 24 24" fill="none" stroke="#dbe3f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M5 8a7 7 0 0 1 14 0"/><path d="M2 5a10 10 0 0 1 20 0"/></svg><div class="label">Antenna Installation &amp; Repair</div></div>
+      <div class="svc"><svg viewBox="0 0 24 24" fill="none" stroke="#dbe3f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><path d="M12 6h.01"/></svg><div class="label">Home Theatre Systems</div></div>
+      <div class="svc"><svg viewBox="0 0 24 24" fill="none" stroke="#dbe3f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg><div class="label">Data, Networking &amp; WiFi</div></div>
+      <div class="svc"><svg viewBox="0 0 24 24" fill="none" stroke="#dbe3f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><div class="label">Phone &amp; Data Outlets</div></div>
+      <div class="svc"><svg viewBox="0 0 24 24" fill="none" stroke="#dbe3f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><div class="label">TV Wall Mounting &amp; Reception</div></div>
+      <div class="svc"><svg viewBox="0 0 24 24" fill="none" stroke="#dbe3f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><div class="label">Residential &amp; Commercial Security</div></div>
+    </div>
+
+    <div class="card"><h3>No experience needed</h3><p>All training is provided. You just need a great attitude, work ethic and communication skills. All franchisees are put on a path to a Cert II in Technical Security and Open Cabling License with endorsements.</p></div>
+    <div class="card"><h3>Real, growing demand</h3><p>Our team services around 4,000 jobs per month. The work is consistent year-round and continually expanding into TV mounting, WiFi, Starlink and 24/7 monitoring.</p></div>
+
+    <div class="card">
+      <h3>Training Pathway</h3>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">3-day course at the Jim's Group training facility (Victoria), alongside other prospective franchisees.</div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-text">4–8 weeks on-road technical training with your local Area Manager.</div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-text">Classroom training covering technical and OHS skills, building toward your Cert II in Technical Security &amp; Open Cabling License.</div></div>
+      </div>
+    </div>
+    <img class="photo-strip shift-up" src="assets/team_meeting.jpg" alt="Franchisee training session">
+    <div class="photo-caption">Franchisee training &amp; support sessions</div>
+  </section>
+
+  <!-- INVESTMENT -->
+  <section>
+    <h2 class="sec-title" id="investment">Your Investment</h2>
+    <p class="sec-sub">A transparent, itemised breakdown of your business start-up kit, equipment and training. Tap a category to see the detail. Fixed monthly fees apply once trading — never a percentage of your turnover.</p>
+
+    <div class="subhead">1. Franchise Associated Investment — one-off cost to secure your territory</div>
+    <div class="fee-row"><span class="lbl">Franchise Territory Fee</span><span class="amt">$32,500.00</span></div>
+    <div class="fee-row"><span class="lbl">Initial Legal &amp; Establishment Costs</span><span class="amt">$2,500.00</span></div>
+    <div class="grand-total"><div class="lbl">Total Franchise Associated Investment</div><div class="amt">$35,000.00</div></div>
+    <p class="footnote">A payment plan is available for the Franchise Territory Fee.</p>
+
+    <div class="subhead">2. Start-Up Kit, Equipment &amp; Training Investment — everything you need to launch, fully itemised</div>
+
+    <div class="accordion" id="costAccordion">
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Safety Equipment</span><span class="total">$582.85 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table>
+          <tr><td>Roofers Harness Kit (6-piece)</td><td class="price">$345.00</td></tr>
+          <tr><td>Linq Anchor Tetha T-Bar</td><td class="price">$149.00</td></tr>
+          <tr><td>Fluke Non-Contact AC Voltage Tester</td><td class="price">$88.85</td></tr>
+        </table></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Sign Writing</span><span class="total">$3,200.00 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table><tr><td>Vehicle sign writing (1 van)</td><td class="price">$3,200.00</td></tr></table></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Stationery</span><span class="total">$741.00 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table>
+          <tr><td>Business Cards (x1,000)</td><td class="price">$121.00</td></tr>
+          <tr><td>Invoice Books (x5)</td><td class="price">$225.00</td></tr>
+          <tr><td>Postcards w/ magnet (x1,000)</td><td class="price">$395.00</td></tr>
+        </table></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Tools &amp; Equipment</span><span class="total">$2,645.15 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table>
+          <tr><td>Laptop</td><td class="price">$600.00</td></tr>
+          <tr><td>Demo / Training Kit (Bosch + Dahua CCTV)</td><td class="price">$880.00</td></tr>
+          <tr><td>Combination Signal Finder DVB-T/T2/S/S2/C</td><td class="price">$768.90</td></tr>
+          <tr><td>Coax Compression Tool</td><td class="price">$110.00</td></tr>
+          <tr><td>RJ45 Crimp Tool</td><td class="price">$90.00</td></tr>
+          <tr><td>Coax Cable Stripper</td><td class="price">$60.00</td></tr>
+          <tr><td>Tag-Out / Lockout Kit</td><td class="price">$136.25</td></tr>
+        </table></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Uniform</span><span class="total">$496.52 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table>
+          <tr><td>Polo Shirts — Summer (x5)</td><td class="price">$214.78</td></tr>
+          <tr><td>Polo Shirts — Winter (x2)</td><td class="price">$86.90</td></tr>
+          <tr><td>Hi-Vis Shirt</td><td class="price">$26.95</td></tr>
+          <tr><td>Navy Hoodie</td><td class="price">$58.20</td></tr>
+          <tr><td>Baseball Cap</td><td class="price">$35.00</td></tr>
+          <tr><td>Branded Masks (x5)</td><td class="price">$74.69</td></tr>
+        </table></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Training &amp; Certification</span><span class="total">$10,279.00 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table>
+          <tr><td>Trainer's Wage</td><td class="price">$4,000.00</td></tr>
+          <tr><td>Certificate II in Technical Security</td><td class="price">$2,980.00</td></tr>
+          <tr><td>Endorsements to Open Cabling</td><td class="price">$1,200.00</td></tr>
+          <tr><td>Flights for Training (if required)</td><td class="price">$1,000.00</td></tr>
+          <tr><td>Accommodation for Training (if required)</td><td class="price">$660.00</td></tr>
+          <tr><td>Working at Heights Endorsement</td><td class="price">$229.00</td></tr>
+          <tr><td>White Card Certification</td><td class="price">$135.00</td></tr>
+          <tr><td>Asbestos Awareness (Online)</td><td class="price">$75.00</td></tr>
+          <tr><td>COVID-19 Infection Control (Online)</td><td class="price">$0.00</td></tr>
+        </table></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Business Registration</span><span class="total">$172.00 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table><tr><td>Business Name Registration (Jim's Group / ASIC)</td><td class="price">$172.00</td></tr></table></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Bookkeeping</span><span class="total">$810.00 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table><tr><td>3 months bookkeeping + Xero subscription</td><td class="price">$810.00</td></tr></table></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Postage</span><span class="total">$50.00 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table><tr><td>Postage (start-up kit delivery)</td><td class="price">$50.00</td></tr></table></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-header"><span class="cat">Jim's Group Initial Fees</span><span class="total">$1,744.21 <span class="chev">▼</span></span></div>
+        <div class="acc-body"><table>
+          <tr><td>Initial Warranty Fee</td><td class="price">$201.21</td></tr>
+          <tr><td>Documentation Fee</td><td class="price">$770.00</td></tr>
+          <tr><td>Jim's Group Induction Training</td><td class="price">$773.00</td></tr>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="grand-total final"><div class="lbl">Total Start-Up Kit, Equipment &amp; Training Investment</div><div class="amt">$18,976.52</div></div>
+    <p class="footnote">Prices current as at June 2026 and subject to change.</p>
+
+    <div class="subhead">3. Monthly Investment — ongoing fixed fees once you're trading</div>
+    <div class="fee-row"><span class="lbl">Franchise Fee ($103.95 Compliance Discount applied)</span><span class="amt">$878.85</span></div>
+    <div class="fee-row"><span class="lbl">Advertising Fee</span><span class="amt">$628.77</span></div>
+    <div class="fee-row"><span class="lbl">National Support &amp; Marketing</span><span class="amt">$67.49</span></div>
+    <div class="grand-total final"><div class="lbl">Total Monthly Investment</div><div class="amt">$1,575.11</div></div>
+    <p class="footnote">Plus a per-lead fee of $15.50–$39.52 (depending on job type) for each lead taken.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <h2 class="sec-title">FAQs &amp; Franchisee Stories</h2>
+    <div class="faq" id="faqList">
+      <div class="faq-item"><div class="faq-q"><span>Do I need to be experienced?</span><span class="faq-chev">▼</span></div><div class="faq-a">No — all training is provided. You just need a good attitude, work ethic and communication skills.</div></div>
+      <div class="faq-item"><div class="faq-q"><span>Where can I work?</span><span class="faq-chev">▼</span></div><div class="faq-a">Wherever you want. Set up and adjust your own work zones anytime via your online profile.</div></div>
+      <div class="faq-item"><div class="faq-q"><span>Can I take time off?</span><span class="faq-chev">▼</span></div><div class="faq-a">It's your business — simply switch your status to "On Holidays" in your online portal.</div></div>
+      <div class="faq-item"><div class="faq-q"><span>What vehicle do I need?</span><span class="faq-chev">▼</span></div><div class="faq-a">Any new or used white van/cab chassis with a service body, no more than 5 years old (national fleet discounts available).</div></div>
+      <div class="faq-item"><div class="faq-q"><span>Can I add more vans?</span><span class="faq-chev">▼</span></div><div class="faq-a">Yes — expand with extra vans without paying additional franchise fees.</div></div>
+      <div class="faq-item"><div class="faq-q"><span>How long is the franchise term?</span><span class="faq-chev">▼</span></div><div class="faq-a">20 years, with the option to renew at no cost.</div></div>
+      <div class="faq-item"><div class="faq-q"><span>What if I want to sell?</span><span class="faq-chev">▼</span></div><div class="faq-a">Jim's Antennas &amp; Security will assist with the sale and prepare the legal documentation.</div></div>
+      <div class="faq-item"><div class="faq-q"><span>Is there enough work?</span><span class="faq-chev">▼</span></div><div class="faq-a">Our team services around 4,000 jobs per month — consistent, year-round demand.</div></div>
+    </div>
+
+    <div class="testi-scroll">
+      <div class="testi"><img class="face" src="assets/p12_1_X11.jpg"><div class="name">Tony — Hillarys, WA</div><div class="quote">&ldquo;Best decision I've made — great support and the work just keeps coming.&rdquo;</div><img class="qr" src="assets/qr1.png"><div class="qr-label">SCAN TO WATCH</div></div>
+      <div class="testi"><img class="face" src="assets/p12_2_X13.jpg"><div class="name">Cameron — Rockingham, WA</div><div class="quote">&ldquo;I love being my own boss and still having the Jim's name behind me.&rdquo;</div><img class="qr" src="assets/qr2.png"><div class="qr-label">SCAN TO WATCH</div></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="whats-next">
+    <div class="logo-badge"><img src="assets/p1_1_X6.png" alt="Jim's Antennas & Security logo"></div>
+    <h2 class="sec-title" style="text-align:center; border:none;">What's Next?</h2>
+    <p>Congratulations on taking the first step towards owning your own business. New prospective franchisees are welcome to a no-obligation Jim's "Day on the Road" — spend a day with an experienced Area Manager and see what life as a Jim's Antennas &amp; Security franchise owner is really like.<br><br>We're sure you have questions — let's continue the conversation. We look forward to hearing from you.</p>
+    <div class="phone">Cameron — 0439 995 000</div>
+    <div class="web">www.jimsantennas.com.au<br>www.jimssecurity.com.au</div>
+  </footer>
+
+  <div class="sticky-cta">
+    <a href="tel:0439995000" class="call">📞 Call 0439 995 000</a>
+    <a href="#investment" class="info">View Investment</a>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.acc-header').forEach(h => {
+    h.addEventListener('click', () => {
+      h.parentElement.classList.toggle('open');
+    });
+  });
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      q.parentElement.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
