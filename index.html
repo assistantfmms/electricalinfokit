@@ -126,7 +126,7 @@
   .testi-scroll{ display:flex; gap:12px; overflow-x:auto; margin-top:14px; padding-bottom:8px; -webkit-overflow-scrolling:touch; }
   .testi{ background:var(--card); border:1px solid var(--card-border); border-radius:12px; padding:14px; text-align:center; flex:0 0 70%; scroll-snap-align:start; }
   .testi-scroll{ scroll-snap-type:x mandatory; }
-  .testi .avatar{ width:60px; height:60px; border-radius:50%; background:var(--navy); border:2px solid var(--red); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; color:var(--red-bright); margin:0 auto 8px; }
+  .testi img.face{ width:60px; height:60px; object-fit:cover; object-position:50% 25%; border-radius:50%; margin:0 auto 8px; display:block; border:2px solid var(--red); }
   .testi .name{ font-weight:800; color:#fff; font-size:13px; }
   .testi .quote{ font-size:12px; font-style:italic; color:#b9c5e0; margin-top:6px; line-height:1.4; }
   .testi .watch-btn{ display:inline-block; margin-top:12px; background:var(--red); color:#fff; font-size:11px; font-weight:800; padding:9px 16px; border-radius:8px; text-decoration:none; letter-spacing:0.5px; }
@@ -361,8 +361,8 @@
     </div>
 
     <div class="testi-scroll">
-      <div class="testi"><div class="avatar">T</div><div class="name">Tony — Hillarys, WA</div><div class="quote">&ldquo;Best decision I've made — great support and the work just keeps coming.&rdquo;</div><a href="#" class="watch-btn">▶ Watch Video</a></div>
-      <div class="testi"><div class="avatar">C</div><div class="name">Cameron — Rockingham, WA</div><div class="quote">&ldquo;I love being my own boss and still having the Jim's name behind me.&rdquo;</div><a href="#" class="watch-btn">▶ Watch Video</a></div>
+      <div class="testi"><img class="face" src="assets/tony.jpg" alt="Tony"><div class="name">Tony — Hillarys, WA</div><div class="quote">&ldquo;Best decision I've made — great support and the work just keeps coming.&rdquo;</div><a href="#" class="watch-btn">▶ Watch Video</a></div>
+      <div class="testi"><img class="face" src="assets/cam.jpg" alt="Cameron"><div class="name">Cameron — Rockingham, WA</div><div class="quote">&ldquo;I love being my own boss and still having the Jim's name behind me.&rdquo;</div><a href="#" class="watch-btn">▶ Watch Video</a></div>
     </div>
   </section>
 
