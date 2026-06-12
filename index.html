@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
 <title>Jim's Antennas & Security — Franchise Information</title>
 <style>
   :root{
@@ -79,6 +80,7 @@
   .diy-label{ width:32%; font-weight:700; font-size:12px; color:#fff; padding-right:6px; }
   .diy-yes,.diy-no{ width:34%; font-size:11.5px; line-height:1.35; padding-right:6px; }
   .diy-yes{ color:var(--text); }
+  .diy-yes::first-letter{ color:#3DDC84; }
   .diy-no{ color:var(--red-bright); }
   .diy-body{ background:var(--card); border:1px solid var(--card-border); border-top:none; border-radius:0 0 8px 8px; padding:6px 10px; }
 
@@ -124,11 +126,10 @@
   .testi-scroll{ display:flex; gap:12px; overflow-x:auto; margin-top:14px; padding-bottom:8px; -webkit-overflow-scrolling:touch; }
   .testi{ background:var(--card); border:1px solid var(--card-border); border-radius:12px; padding:14px; text-align:center; flex:0 0 70%; scroll-snap-align:start; }
   .testi-scroll{ scroll-snap-type:x mandatory; }
-  .testi img.face{ width:60px; height:60px; object-fit:cover; object-position:50% 25%; border-radius:50%; margin-bottom:8px; }
+  .testi .avatar{ width:60px; height:60px; border-radius:50%; background:var(--navy); border:2px solid var(--red); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; color:var(--red-bright); margin:0 auto 8px; }
   .testi .name{ font-weight:800; color:#fff; font-size:13px; }
   .testi .quote{ font-size:12px; font-style:italic; color:#b9c5e0; margin-top:6px; line-height:1.4; }
-  .testi .qr{ width:70px; height:70px; margin:10px auto 4px; display:block; border-radius:6px; }
-  .testi .qr-label{ font-size:9px; color:var(--text-dim); font-weight:700; letter-spacing:0.5px; }
+  .testi .watch-btn{ display:inline-block; margin-top:12px; background:var(--red); color:#fff; font-size:11px; font-weight:800; padding:9px 16px; border-radius:8px; text-decoration:none; letter-spacing:0.5px; }
 
   /* TRAINING STEPS */
   .steps{ margin-top:14px; }
@@ -161,8 +162,7 @@
   </div>
 
   <div class="cta-bar">
-    <a href="tel:0439995000" class="cta-btn cta-call">📞 Call 0439 995 000</a>
-    <a href="#whats-next" class="cta-btn cta-day">Day on the Road</a>
+    <a href="tel:0439995000" class="cta-btn cta-call cta-full">📞 Call 0439 995 000</a>
   </div>
 
   <!-- WHY JIM'S -->
@@ -250,7 +250,7 @@
     <div class="subhead">1. Franchise Associated Investment — one-off cost to secure your territory</div>
     <div class="fee-row"><span class="lbl">Franchise Territory Fee</span><span class="amt">$32,500.00</span></div>
     <div class="fee-row"><span class="lbl">Initial Legal &amp; Establishment Costs</span><span class="amt">$2,500.00</span></div>
-    <div class="grand-total"><div class="lbl">Total Franchise Associated Investment</div><div class="amt">$35,000.00</div></div>
+    <div class="grand-total final"><div class="lbl">Total Franchise Associated Investment</div><div class="amt">$35,000.00</div></div>
     <p class="footnote">A payment plan is available for the Franchise Territory Fee.</p>
 
     <div class="subhead">2. Start-Up Kit, Equipment &amp; Training Investment — everything you need to launch, fully itemised</div>
@@ -361,8 +361,8 @@
     </div>
 
     <div class="testi-scroll">
-      <div class="testi"><img class="face" src="assets/p12_1_X11.jpg"><div class="name">Tony — Hillarys, WA</div><div class="quote">&ldquo;Best decision I've made — great support and the work just keeps coming.&rdquo;</div><img class="qr" src="assets/qr1.png"><div class="qr-label">SCAN TO WATCH</div></div>
-      <div class="testi"><img class="face" src="assets/p12_2_X13.jpg"><div class="name">Cameron — Rockingham, WA</div><div class="quote">&ldquo;I love being my own boss and still having the Jim's name behind me.&rdquo;</div><img class="qr" src="assets/qr2.png"><div class="qr-label">SCAN TO WATCH</div></div>
+      <div class="testi"><div class="avatar">T</div><div class="name">Tony — Hillarys, WA</div><div class="quote">&ldquo;Best decision I've made — great support and the work just keeps coming.&rdquo;</div><a href="#" class="watch-btn">▶ Watch Video</a></div>
+      <div class="testi"><div class="avatar">C</div><div class="name">Cameron — Rockingham, WA</div><div class="quote">&ldquo;I love being my own boss and still having the Jim's name behind me.&rdquo;</div><a href="#" class="watch-btn">▶ Watch Video</a></div>
     </div>
   </section>
 
