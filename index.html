@@ -14,209 +14,101 @@
   --blue-light: #2468CC;
   --red:        #D42B2B;
   --red-bright: #E83030;
-  --white:      #FFFFFF;
   --text-dim:   #8090B0;
   --text-item:  #C8D4E8;
   --card-bg:    rgba(255,255,255,0.07);
   --card-border:rgba(255,255,255,0.12);
-  --tab-h:      60px;
-  --cta-h:      56px;
-  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --bar-h:      64px;
+  --safe-bottom:env(safe-area-inset-bottom, 0px);
 }
  
 /* ── RESET ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { font-size:16px; -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  background: var(--blue-dark);
-  color: #fff;
-  min-height: 100vh;
-  padding-bottom: calc(var(--tab-h) + var(--cta-h) + var(--safe-bottom));
-  overflow-x: hidden;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background:var(--blue-dark);
+  color:#fff;
+  padding-bottom:calc(var(--bar-h) + var(--safe-bottom));
+  overflow-x:hidden;
 }
  
-/* ── SECTIONS ── */
-.screen { display: none; }
-.screen.active { display: block; }
+/* ── SECTION SPACING ── */
+.section { padding:0 0 32px; }
+.sec-pad { padding:20px 16px 0; }
+.sec-body { padding:12px 16px 0; }
  
-/* ── SHARED SECTION CHROME ── */
-.sec-hero {
-  width: 100%; height: 48vw; max-height: 220px;
-  overflow: hidden; position: relative;
-  background: var(--blue-dark);
-}
-.sec-hero img { width:100%; height:100%; object-fit:cover; object-position:50% 30%; display:block; }
-.sec-hero::after {
-  content:''; position:absolute; inset:0;
-  background: linear-gradient(to bottom, transparent 40%, var(--blue-dark) 100%);
-}
-.sec-hero .hero-label {
-  position:absolute; bottom:10px; left:16px; right:16px; z-index:2;
-  font-size:11px; font-weight:700; letter-spacing:2px; color:var(--text-dim); text-transform:uppercase;
-}
+/* ── SECTION HEADINGS ── */
+.sec-title { font-size:22px; font-weight:900; letter-spacing:-0.3px; margin-bottom:6px; }
+.accent-line { height:3px; width:44px; background:linear-gradient(90deg,var(--red),var(--blue-light)); border-radius:2px; margin-bottom:14px; }
+.sub-label { font-size:11px; font-weight:900; color:var(--red-bright); text-transform:uppercase; letter-spacing:0.6px; margin:16px 0 10px; }
  
-.sec-pad { padding: 16px 16px 8px; }
-.sec-title {
-  font-size: 22px; font-weight: 900; letter-spacing: -0.3px;
-  margin-bottom: 4px;
+/* ── DIVIDER ── */
+.sec-divider { height:1px; background:rgba(255,255,255,0.08); margin:0 16px; }
+ 
+/* ── HERO PHOTO ── */
+.hero-photo { width:100%; height:62vw; max-height:300px; overflow:hidden; position:relative; background:#0a1830; }
+.hero-photo img { width:100%; height:100%; object-fit:cover; object-position:50% 20%; display:block; }
+.hero-photo::after { content:''; position:absolute; bottom:0; left:0; right:0; height:50%; background:linear-gradient(transparent, var(--blue-dark)); }
+ 
+/* ── LOGO CARD ── */
+.logo-card {
+  background:#fff; border-radius:16px; padding:14px 18px;
+  margin:-20px 24px 0; position:relative; z-index:2;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4); text-align:center;
 }
-.accent-line {
-  height: 3px; width: 48px;
-  background: linear-gradient(90deg, var(--red), var(--blue-light));
-  border-radius: 2px; margin-bottom: 16px;
-}
-.sec-body { padding: 0 16px 24px; }
+.logo-card img { width:130px; display:block; margin:0 auto; }
+ 
+/* ── COVER BODY ── */
+.cover-body { padding:20px 16px 0; }
+.cover-title { font-size:28px; font-weight:900; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+.cover-sub { font-size:13px; color:var(--text-item); line-height:1.65; margin-bottom:18px; }
+.cover-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:0; }
+.cover-stat { background:var(--blue); border-radius:10px; padding:12px 6px; text-align:center; }
+.cover-stat .num { font-size:20px; font-weight:900; color:var(--red-bright); }
+.cover-stat .lab { font-size:9px; color:var(--text-dim); margin-top:3px; line-height:1.3; }
+ 
+/* ── RED FOOTER BAND ── */
+.red-band { background:var(--red); padding:14px 16px; text-align:center; margin-top:20px; }
+.red-band .line1 { font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase; margin-bottom:2px; }
+.red-band .line2 { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.8); }
+ 
+/* ── SECTION PHOTO STRIP ── */
+.sec-photo { width:100%; height:44vw; max-height:200px; overflow:hidden; position:relative; }
+.sec-photo img { width:100%; height:100%; object-fit:cover; object-position:50% 30%; display:block; }
+.sec-photo::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(15,47,94,0.6) 0%,transparent 60%); }
+.sec-photo-label { position:absolute; left:14px; top:50%; transform:translateY(-50%); z-index:2; font-size:18px; font-weight:900; line-height:1.2; }
  
 /* ── CARDS ── */
-.card {
-  background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 12px; padding: 14px; margin-bottom: 10px;
-}
-.card-icon { font-size: 22px; margin-bottom: 6px; }
-.card h3 { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
-.card p { font-size: 13px; color: var(--text-item); line-height: 1.55; }
-.tag {
-  display: inline-block; background: var(--red); border-radius: 4px;
-  padding: 2px 8px; font-size: 10px; font-weight: 800; letter-spacing: 0.5px;
-  margin-top: 6px;
-}
+.card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:12px; padding:14px; margin-bottom:10px; }
+.card-icon { font-size:22px; margin-bottom:6px; }
+.card h3 { font-size:14px; font-weight:800; margin-bottom:5px; }
+.card p { font-size:13px; color:var(--text-item); line-height:1.55; }
+.tag { display:inline-block; background:var(--red); border-radius:4px; padding:2px 8px; font-size:10px; font-weight:800; letter-spacing:0.5px; margin-top:8px; }
  
 /* ── STATS BAND ── */
-.stats-band {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 8px; margin-bottom: 16px;
-}
-.stat-item {
-  background: var(--blue); border-radius: 10px;
-  padding: 12px 8px; text-align: center;
-}
-.stat-item .num { font-size: 22px; font-weight: 900; color: var(--red-bright); line-height: 1; }
-.stat-item .lab { font-size: 9px; color: var(--text-dim); margin-top: 3px; line-height: 1.3; }
+.stats-band { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:0; }
+.stat-item { background:var(--blue); border-radius:10px; padding:12px 6px; text-align:center; }
+.stat-item .num { font-size:20px; font-weight:900; color:var(--red-bright); line-height:1; }
+.stat-item .lab { font-size:9px; color:var(--text-dim); margin-top:3px; line-height:1.3; }
  
-/* ── GUARANTEE BOX ── */
-.guarantee {
-  background: var(--blue); border-radius: 12px;
-  padding: 16px; margin-bottom: 16px;
-  display: flex; gap: 14px; align-items: center;
-}
-.guarantee .big { font-size: 32px; font-weight: 900; color: var(--red-bright); line-height: 1; flex-shrink: 0; }
-.guarantee .big span { font-size: 14px; }
-.guarantee h3 { font-size: 15px; font-weight: 900; margin-bottom: 4px; }
-.guarantee p { font-size: 12px; color: var(--text-item); line-height: 1.5; }
+/* ── GUARANTEE ── */
+.guarantee { background:var(--blue); border-radius:12px; padding:16px; margin-bottom:12px; display:flex; gap:14px; align-items:center; }
+.guarantee .big { font-size:30px; font-weight:900; color:var(--red-bright); line-height:1; flex-shrink:0; }
+.guarantee .big span { font-size:13px; display:block; }
+.guarantee h3 { font-size:14px; font-weight:900; margin-bottom:4px; }
+.guarantee p { font-size:12px; color:var(--text-item); line-height:1.5; }
  
 /* ── SERVICE GRID ── */
-.service-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 8px; margin-bottom: 16px;
-}
-.service-card {
-  background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 10px; padding: 12px; display: flex; gap: 10px; align-items: flex-start;
-}
-.service-card .ico { font-size: 20px; flex-shrink: 0; }
-.service-card h4 { font-size: 12px; font-weight: 800; margin-bottom: 2px; }
-.service-card p { font-size: 11px; color: var(--text-item); line-height: 1.4; }
+.service-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+.service-card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:10px; padding:12px; }
+.service-card .ico { font-size:20px; margin-bottom:6px; }
+.service-card h4 { font-size:12px; font-weight:800; margin-bottom:3px; }
+.service-card p { font-size:11px; color:var(--text-item); line-height:1.4; }
  
-/* ── COMPARISON TABLE ── */
-.cmp-wrap { overflow-x: auto; border-radius: 12px; margin-bottom: 16px; }
-.cmp-table { width: 100%; border-collapse: collapse; min-width: 520px; }
-.cmp-table thead tr { background: var(--red); }
-.cmp-table thead td {
-  padding: 10px 12px; font-size: 11px; font-weight: 900;
-  letter-spacing: 0.8px; text-transform: uppercase; color: #fff;
-}
-.cmp-table thead td:first-child { width: 24%; }
-.cmp-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.07); }
-.cmp-table tbody tr:nth-child(odd) { background: rgba(255,255,255,0.05); }
-.cmp-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
-.cmp-table td { padding: 10px 12px; font-size: 12px; line-height: 1.4; vertical-align: top; }
-.cmp-table td.cat { font-weight: 900; color: #fff; font-size: 12px; }
-.cmp-table td.solo { color: #FF8A8A; }
-.cmp-table td.solo::before { content: '✗ '; font-weight: 900; color: var(--red-bright); }
-.cmp-table td.good { color: #7EEAB8; }
-.cmp-table td.good::before { content: '✓ '; font-weight: 900; color: #5DE0A0; }
-.cmp-table td.good strong { color: #fff; }
-.swipe-hint { text-align:center; font-size:11px; color:var(--text-dim); margin-bottom:12px; }
- 
-/* ── INVESTMENT ── */
-.inv-section { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 14px; margin-bottom: 10px; }
-.inv-label { font-size: 10px; font-weight: 900; color: var(--red-bright); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.inv-line { display: flex; justify-content: space-between; font-size: 13px; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.06); color: var(--text-item); }
-.inv-line:last-of-type { border: none; }
-.inv-line span:last-child { font-weight: 700; color: #fff; white-space: nowrap; }
-.inv-total { display: flex; justify-content: space-between; align-items: center; background: var(--red); border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
-.inv-total .lbl { font-size: 12px; font-weight: 800; }
-.inv-total .amt { font-size: 20px; font-weight: 900; }
-.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
-.summary-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 12px; text-align: center; }
-.summary-item .lbl { font-size: 10px; color: var(--text-dim); margin-bottom: 4px; line-height: 1.3; }
-.summary-item .val { font-size: 18px; font-weight: 900; }
-.summary-item.highlight { background: var(--red); border-color: var(--red); grid-column: 1 / -1; }
-.summary-item.highlight .lbl { color: rgba(255,255,255,0.8); }
-.plan-box { background: var(--card-bg); border: 1px solid var(--red); border-radius: 12px; padding: 14px; display: flex; gap: 14px; align-items: center; margin-bottom: 16px; }
-.plan-box .plan-num { font-size: 28px; font-weight: 900; color: var(--red-bright); line-height: 1; text-align: center; flex-shrink:0; }
-.plan-box .plan-num span { font-size: 11px; display: block; color: var(--text-dim); font-weight: 700; }
-.plan-box h4 { font-size: 13px; font-weight: 900; margin-bottom: 4px; }
-.plan-box p { font-size: 12px; color: var(--text-item); line-height: 1.5; }
-.monthly-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 8px; }
-.monthly-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 12px; display: flex; justify-content: space-between; align-items: center; }
-.monthly-item .lbl { font-size: 12px; color: var(--text-dim); line-height: 1.3; flex:1; padding-right:12px; }
-.monthly-item .val { font-size: 16px; font-weight: 900; flex-shrink:0; }
- 
-/* ── FAQ ACCORDION ── */
-.faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
-.faq-q {
-  width: 100%; background: none; border: none; color: #fff;
-  font-size: 14px; font-weight: 700; text-align: left;
-  padding: 14px 0; display: flex; justify-content: space-between; align-items: center;
-  cursor: pointer; gap: 12px;
-}
-.faq-q .chevron { flex-shrink:0; font-size:16px; color:var(--red-bright); transition: transform 0.2s; }
-.faq-q.open .chevron { transform: rotate(180deg); }
-.faq-a { font-size: 13px; color: var(--text-item); line-height: 1.6; padding: 0 0 14px; display: none; }
-.faq-a.open { display: block; }
- 
-/* ── TESTIMONIAL CARDS ── */
-.story-card {
-  background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 12px; overflow: hidden; margin-bottom: 12px;
-}
-.story-photo { width:100%; height:52vw; max-height:220px; overflow:hidden; position:relative; }
-.story-photo img { width:100%; height:100%; object-fit:cover; object-position:50% 15%; display:block; }
-.story-photo::after {
-  content:'▶'; position:absolute; inset:0;
-  display:flex; align-items:center; justify-content:center;
-  font-size:32px; color:rgba(255,255,255,0.85);
-  background:rgba(15,47,94,0.3);
-}
-.story-body { padding: 14px; }
-.story-name { font-size:16px; font-weight:900; margin-bottom:2px; }
-.story-loc { font-size:11px; color:var(--text-dim); margin-bottom:10px; font-weight:600; }
-.story-quote { font-size:13px; font-style:italic; color:var(--text-item); line-height:1.6; margin-bottom:12px; }
-.story-qr { display:flex; align-items:center; gap:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1); }
-.story-qr img { width:52px; height:52px; background:#fff; border-radius:6px; padding:2px; flex-shrink:0; }
-.story-qr-text .title { font-size:12px; font-weight:800; color:var(--red-bright); }
-.story-qr-text .sub { font-size:11px; color:var(--text-dim); }
- 
-/* ── PROFILE CARDS ── */
-.profile-card {
-  background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 12px; overflow: hidden; margin-bottom: 10px;
-}
-.profile-photo { width:100%; height:44vw; max-height:180px; overflow:hidden; }
-.profile-photo img { width:100%; height:100%; object-fit:cover; object-position:50% 12%; display:block; }
-.profile-info { padding: 14px; }
-.profile-name { font-size:18px; font-weight:900; margin-bottom:2px; }
-.profile-role { font-size:11px; color:var(--red-bright); font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:8px; }
-.profile-bio { font-size:13px; color:var(--text-item); line-height:1.55; margin-bottom:10px; }
-.contact-detail { display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1px solid rgba(255,255,255,0.08); font-size:13px; }
-.contact-detail .ico { font-size:18px; flex-shrink:0; }
-.contact-detail a { color:#7EEAB8; text-decoration:none; font-weight:600; }
- 
-/* ── STEPS ── */
-.step-card { display:flex; gap:14px; margin-bottom:14px; }
-.step-num { width:36px; height:36px; min-width:36px; border-radius:50%; background:var(--red); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; }
+/* ── STEP CARDS ── */
+.step-card { display:flex; gap:12px; margin-bottom:12px; }
+.step-num { width:34px; height:34px; min-width:34px; border-radius:50%; background:var(--red); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:900; flex-shrink:0; margin-top:2px; }
 .step-body { background:var(--card-bg); border:1px solid var(--card-border); border-radius:10px; padding:12px; flex:1; }
 .step-body h3 { font-size:14px; font-weight:800; margin-bottom:4px; }
 .step-body p { font-size:12px; color:var(--text-item); line-height:1.5; }
@@ -224,307 +116,308 @@ body {
  
 /* ── SUPPORT BLOCKS ── */
 .support-block { display:flex; gap:12px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:10px; padding:12px; margin-bottom:8px; }
-.support-block .ico { font-size:22px; flex-shrink:0; }
+.support-block .ico { font-size:20px; flex-shrink:0; margin-top:2px; }
 .support-block h4 { font-size:13px; font-weight:800; margin-bottom:3px; }
 .support-block p { font-size:12px; color:var(--text-item); line-height:1.5; }
  
 /* ── GROWTH CARDS ── */
 .growth-card { background:var(--blue); border-radius:10px; padding:14px; display:flex; gap:12px; margin-bottom:8px; }
-.growth-card .ico { font-size:22px; flex-shrink:0; }
+.growth-card .ico { font-size:20px; flex-shrink:0; margin-top:2px; }
 .growth-card h4 { font-size:13px; font-weight:800; margin-bottom:4px; }
 .growth-card p { font-size:12px; color:var(--text-item); line-height:1.5; }
  
-/* ── NEXT STEPS ── */
-.next-box { background:var(--blue); border-radius:12px; padding:16px; margin-bottom:16px; }
+/* ── COMPARE TABLE ── */
+.cmp-wrap { overflow-x:auto; border-radius:12px; margin-bottom:12px; -webkit-overflow-scrolling:touch; }
+.cmp-table { width:100%; border-collapse:collapse; min-width:500px; }
+.cmp-table thead tr { background:var(--red); }
+.cmp-table thead td { padding:10px 12px; font-size:11px; font-weight:900; letter-spacing:0.8px; text-transform:uppercase; color:#fff; }
+.cmp-table thead td:first-child { width:22%; }
+.cmp-table tbody tr { border-bottom:1px solid rgba(255,255,255,0.07); }
+.cmp-table tbody tr:nth-child(odd) { background:rgba(255,255,255,0.05); }
+.cmp-table tbody tr:nth-child(even) { background:rgba(255,255,255,0.02); }
+.cmp-table td { padding:10px 12px; font-size:12px; line-height:1.4; vertical-align:top; }
+.cmp-table td.cat { font-weight:900; color:#fff; }
+.cmp-table td.solo { color:#FF8A8A; }
+.cmp-table td.solo::before { content:'✗ '; color:var(--red-bright); font-weight:900; }
+.cmp-table td.good { color:#7EEAB8; }
+.cmp-table td.good::before { content:'✓ '; color:#5DE0A0; font-weight:900; }
+.cmp-table td.good strong { color:#fff; }
+.swipe-hint { text-align:center; font-size:11px; color:var(--text-dim); margin-bottom:8px; }
+ 
+/* ── INVESTMENT ── */
+.inv-section { background:var(--card-bg); border:1px solid var(--card-border); border-radius:12px; padding:14px; margin-bottom:10px; }
+.inv-label { font-size:10px; font-weight:900; color:var(--red-bright); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,0.1); }
+.inv-line { display:flex; justify-content:space-between; font-size:13px; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.06); color:var(--text-item); }
+.inv-line:last-of-type { border:none; }
+.inv-line span:last-child { font-weight:700; color:#fff; white-space:nowrap; margin-left:8px; }
+.inv-total { display:flex; justify-content:space-between; align-items:center; background:var(--red); border-radius:8px; padding:10px 14px; margin-top:10px; }
+.inv-total .lbl { font-size:12px; font-weight:800; }
+.inv-total .amt { font-size:20px; font-weight:900; }
+.summary-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px; }
+.summary-item { background:var(--card-bg); border:1px solid var(--card-border); border-radius:10px; padding:12px; text-align:center; }
+.summary-item .lbl { font-size:10px; color:var(--text-dim); margin-bottom:4px; line-height:1.3; }
+.summary-item .val { font-size:18px; font-weight:900; }
+.summary-item.highlight { background:var(--red); border-color:var(--red); grid-column:1/-1; }
+.summary-item.highlight .lbl { color:rgba(255,255,255,0.8); }
+.plan-box { background:var(--card-bg); border:1px solid var(--red); border-radius:12px; padding:14px; display:flex; gap:14px; align-items:center; margin-bottom:14px; }
+.plan-box .plan-num { font-size:26px; font-weight:900; color:var(--red-bright); line-height:1; text-align:center; flex-shrink:0; }
+.plan-box .plan-num span { font-size:10px; display:block; color:var(--text-dim); font-weight:700; margin-top:2px; }
+.plan-box h4 { font-size:13px; font-weight:900; margin-bottom:4px; }
+.plan-box p { font-size:12px; color:var(--text-item); line-height:1.5; }
+.monthly-item { background:var(--card-bg); border:1px solid var(--card-border); border-radius:10px; padding:12px; display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.monthly-item .lbl { font-size:12px; color:var(--text-dim); line-height:1.3; flex:1; padding-right:12px; }
+.monthly-item .val { font-size:16px; font-weight:900; flex-shrink:0; }
+ 
+/* ── FAQ ── */
+.faq-item { border-bottom:1px solid rgba(255,255,255,0.1); }
+.faq-q { width:100%; background:none; border:none; color:#fff; font-size:14px; font-weight:700; text-align:left; padding:14px 0; display:flex; justify-content:space-between; align-items:center; cursor:pointer; gap:12px; line-height:1.4; }
+.faq-q .chevron { flex-shrink:0; font-size:16px; color:var(--red-bright); transition:transform 0.2s; }
+.faq-q.open .chevron { transform:rotate(180deg); }
+.faq-a { font-size:13px; color:var(--text-item); line-height:1.65; padding:0 0 14px; display:none; }
+.faq-a.open { display:block; }
+ 
+/* ── TESTIMONIALS ── */
+.story-card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:12px; overflow:hidden; margin-bottom:14px; }
+.story-photo { width:100%; height:56vw; max-height:240px; overflow:hidden; position:relative; }
+.story-photo img { width:100%; height:100%; object-fit:cover; object-position:50% 12%; display:block; }
+.story-photo::after { content:'▶'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:36px; color:rgba(255,255,255,0.85); background:rgba(15,47,94,0.3); pointer-events:none; }
+.story-body { padding:14px; }
+.story-name { font-size:16px; font-weight:900; margin-bottom:2px; }
+.story-loc { font-size:11px; color:var(--text-dim); font-weight:600; margin-bottom:10px; }
+.story-quote { font-size:13px; font-style:italic; color:var(--text-item); line-height:1.65; margin-bottom:12px; }
+.story-qr { display:flex; align-items:center; gap:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1); }
+.story-qr img { width:52px; height:52px; background:#fff; border-radius:6px; padding:2px; flex-shrink:0; }
+.story-qr .title { font-size:12px; font-weight:800; color:var(--red-bright); }
+.story-qr .sub { font-size:11px; color:var(--text-dim); }
+ 
+/* ── PROFILE CARDS ── */
+.profile-card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:12px; overflow:hidden; margin-bottom:12px; }
+.profile-photo { width:100%; height:48vw; max-height:200px; overflow:hidden; }
+.profile-photo img { width:100%; height:100%; object-fit:cover; object-position:50% 12%; display:block; }
+.profile-info { padding:14px; }
+.profile-name { font-size:18px; font-weight:900; margin-bottom:2px; }
+.profile-role { font-size:11px; color:var(--red-bright); font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:8px; }
+.profile-bio { font-size:13px; color:var(--text-item); line-height:1.55; margin-bottom:10px; }
+.contact-row { display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1px solid rgba(255,255,255,0.08); }
+.contact-row .ico { font-size:17px; flex-shrink:0; }
+.contact-row a { color:#7EEAB8; text-decoration:none; font-size:13px; font-weight:600; }
+ 
+/* ── NEXT STEPS BOX ── */
+.next-box { background:var(--blue); border-radius:12px; padding:16px; margin-bottom:14px; }
 .next-box h3 { font-size:16px; font-weight:900; margin-bottom:8px; }
 .next-box p { font-size:13px; color:var(--text-item); line-height:1.65; margin-bottom:8px; }
+.next-box p:last-child { margin-bottom:0; }
  
 /* ── FOOTNOTE ── */
 .footnote { font-size:11px; color:var(--text-dim); line-height:1.5; margin-top:6px; }
  
-/* ── BOTTOM TAB BAR ── */
-.tab-bar {
-  position: fixed; bottom: calc(var(--cta-h) + var(--safe-bottom)); left: 0; right: 0;
-  height: var(--tab-h);
-  background: #0a1e3d; border-top: 1px solid rgba(255,255,255,0.1);
-  display: flex; z-index: 100;
-  overflow-x: auto; overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+/* ── STICKY BOTTOM BAR ── */
+.bottom-bar {
+  position:fixed; bottom:0; left:0; right:0;
+  height:calc(var(--bar-h) + var(--safe-bottom));
+  padding-bottom:var(--safe-bottom);
+  background:#0a1e3d; border-top:1px solid rgba(255,255,255,0.12);
+  display:flex; align-items:center; justify-content:space-between;
+  padding-left:16px; padding-right:16px;
+  z-index:100;
 }
-.tab-bar::-webkit-scrollbar { display:none; }
-.tab-btn {
-  flex: 0 0 auto; min-width: 64px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 3px; background: none; border: none; cursor: pointer;
-  padding: 6px 8px; color: var(--text-dim);
-  transition: color 0.15s;
-  font-size: 9px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase;
+.bar-info { display:flex; flex-direction:column; }
+.bar-name { font-size:14px; font-weight:900; line-height:1.1; }
+.bar-role { font-size:10px; color:var(--text-dim); letter-spacing:0.5px; }
+.bar-actions { display:flex; gap:10px; }
+.bar-btn {
+  display:flex; align-items:center; gap:6px;
+  padding:9px 14px; border-radius:8px; border:none;
+  font-size:13px; font-weight:800; cursor:pointer;
+  text-decoration:none; white-space:nowrap;
 }
-.tab-btn .tab-ico { font-size: 19px; }
-.tab-btn.active { color: var(--red-bright); }
-.tab-btn.active .tab-ico-line { 
-  display: block; width: 20px; height: 2px; background: var(--red-bright);
-  border-radius: 2px; margin-top: 2px;
-}
- 
-/* ── STICKY CTA ── */
-.cta-bar {
-  position: fixed; bottom: var(--safe-bottom); left: 0; right: 0;
-  height: var(--cta-h);
-  background: var(--red); display: flex; z-index: 101;
-}
-.cta-btn {
-  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
-  background: none; border: none; color: #fff;
-  font-size: 14px; font-weight: 800; cursor: pointer; letter-spacing: 0.3px;
-  text-decoration: none;
-}
-.cta-btn:first-child { border-right: 1px solid rgba(255,255,255,0.2); }
-.cta-btn .ico { font-size: 18px; }
- 
-/* ── COVER SCREEN ── */
-#screen-home .cover-photo {
-  width:100%; height:60vw; max-height:280px; overflow:hidden; position:relative;
-  background:#0a1830;
-}
-#screen-home .cover-photo img { width:100%; height:100%; object-fit:cover; object-position:50% 20%; display:block; }
-#screen-home .cover-photo::after {
-  content:''; position:absolute; bottom:0; left:0; right:0; height:50%;
-  background: linear-gradient(transparent, var(--blue-dark));
-}
-#screen-home .logo-card {
-  background:#fff; border-radius:16px; padding:16px 20px;
-  margin: -20px 24px 0; position:relative; z-index:2;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  text-align:center;
-}
-#screen-home .logo-card img { width:140px; display:block; margin:0 auto; }
-#screen-home .cover-body { padding:20px 20px 8px; }
-#screen-home h1 { font-size:26px; font-weight:900; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
-#screen-home .cover-sub { font-size:13px; color:var(--text-item); line-height:1.65; margin-bottom:16px; }
-#screen-home .cover-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:16px; }
-#screen-home .cover-stat { background:var(--blue); border-radius:10px; padding:12px 6px; text-align:center; }
-#screen-home .cover-stat .num { font-size:20px; font-weight:900; color:var(--red-bright); }
-#screen-home .cover-stat .lab { font-size:9px; color:var(--text-dim); margin-top:2px; line-height:1.3; }
-#screen-home .cover-footer { background:var(--red); margin:0 -0px; padding:12px 20px; text-align:center; }
-#screen-home .cover-footer .line1 { font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase; margin-bottom:2px; }
-#screen-home .cover-footer .line2 { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.8); }
+.bar-btn.call { background:var(--red); color:#fff; }
+.bar-btn.email { background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.2); }
+.bar-btn .ico { font-size:15px; }
 </style>
 </head>
 <body>
  
-<!-- ════════════════════════════════
-     SCREEN 1 — COVER / HOME
-════════════════════════════════ -->
-<section id="screen-home" class="screen active">
-  <div class="cover-photo">
-    <img src="electrical/assets/franchisee_front.png" alt="Jim's Electrical franchisee">
+<!-- ══ COVER ══════════════════════════════════════ -->
+<div class="hero-photo">
+  <img src="electrical/assets/franchisee_front.png" alt="Jim's Electrical franchisee">
+</div>
+<div class="logo-card">
+  <img src="electrical/assets/logo_new.jpg" alt="Jim's Electrical">
+</div>
+<div class="cover-body">
+  <div style="height:16px;"></div>
+  <div class="cover-title">Information Kit</div>
+  <p class="cover-sub">Your opportunity to own a proven, scalable electrical business backed by Australia's most recognised home services brand.</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><div class="num">500K+</div><div class="lab">Inbound leads / year</div></div>
+    <div class="cover-stat"><div class="num">94%</div><div class="lab">Brand recognition</div></div>
+    <div class="cover-stat"><div class="num">30+</div><div class="lab">Years in business</div></div>
   </div>
-  <div class="logo-card">
-    <img src="electrical/assets/logo_new.jpg" alt="Jim's Electrical">
-  </div>
-  <div class="cover-body">
-    <h1>Information Kit</h1>
-    <p class="cover-sub">Your opportunity to own a proven, scalable electrical business backed by Australia's most recognised home services brand.</p>
-    <div class="cover-stats">
-      <div class="cover-stat"><div class="num">500K+</div><div class="lab">Inbound leads / year</div></div>
-      <div class="cover-stat"><div class="num">94%</div><div class="lab">Brand recognition</div></div>
-      <div class="cover-stat"><div class="num">30+</div><div class="lab">Years in business</div></div>
-    </div>
-  </div>
-  <div class="cover-footer">
-    <div class="line1">A Division of Australia's Favourite Home Services Franchise</div>
-    <div class="line2">Supporting Electricians For Success</div>
-  </div>
-</section>
+</div>
+<div class="red-band">
+  <div class="line1">A Division of Australia's Favourite Home Services Franchise</div>
+  <div class="line2">Supporting Electricians For Success</div>
+</div>
  
-<!-- ════════════════════════════════
-     SCREEN 2 — WHY JIM'S
-════════════════════════════════ -->
-<section id="screen-why" class="screen">
+<!-- ══ WHY JIM'S ════════════════════════════════ -->
+<div class="section">
   <div class="sec-pad">
     <div class="sec-title">Why Jim's Electrical?</div>
     <div class="accent-line"></div>
   </div>
   <div class="sec-body">
     <div class="guarantee">
-      <div>
-        <div class="big">$2,000<span>/wk</span></div>
-      </div>
+      <div><div class="big">$2,000<span>/wk</span></div></div>
       <div>
         <h3>Pay-For-Work Guarantee</h3>
         <p>Eligible new franchisees are guaranteed $2,000/week during ramp-up. If the leads don't come in, Jim's makes up the difference.</p>
-        <p class="footnote" style="margin-top:6px;">*Subject to eligibility. See franchise agreement.</p>
+        <p class="footnote" style="margin-top:4px;">*Subject to eligibility. See franchise agreement.</p>
       </div>
     </div>
- 
     <div class="card"><div class="card-icon">📞</div><h3>Work From Day One</h3><p>Jim's 131 546 call centre fields 500,000+ enquiries per year. Qualified leads are allocated directly to your territory from the moment you start.</p><div class="tag">IMMEDIATE INCOME</div></div>
     <div class="card"><div class="card-icon">🏷️</div><h3>A Brand That Opens Doors</h3><p>94% of Australians recognise the Jim's name. That trust is built in before you pick up a tool — clients say yes faster because of who you are.</p><div class="tag">30+ YEAR BRAND</div></div>
-    <div class="card"><div class="card-icon">📈</div><h3>Scale Without Limits</h3><p>Add extra vans and staff to grow your revenue without paying additional franchise fees. Jim's rewards growth — it doesn't penalise it.</p><div class="tag">NO EXTRA FEES</div></div>
+    <div class="card"><div class="card-icon">📈</div><h3>Scale Without Limits</h3><p>Add extra vans and staff without paying additional franchise fees. Jim's rewards growth — it doesn't penalise it.</p><div class="tag">NO EXTRA FEES</div></div>
     <div class="card"><div class="card-icon">⚖️</div><h3>Fixed Fees, Not a Cut</h3><p>Monthly fees are fixed — never a percentage of turnover. Every extra dollar you earn goes directly to you.</p><div class="tag">KEEP WHAT YOU EARN</div></div>
-    <div class="card"><div class="card-icon">🏖️</div><h3>Take a Holiday</h3><p>Switch to "On Holidays" in Jim's Jobs. Your clients are looked after — and they're waiting when you return.</p><div class="tag">WORK-LIFE BALANCE</div></div>
-    <div class="card"><div class="card-icon">💼</div><h3>A Genuine Asset</h3><p>Your franchise is a saleable business. Build it, grow it, and sell it. Jim's assists with the valuation, marketing and legal process.</p><div class="tag">LONG TERM VALUE</div></div>
- 
-    <div class="stats-band" style="margin-top:8px;">
+    <div class="card"><div class="card-icon">🏖️</div><h3>Take a Holiday</h3><p>Switch to "On Holidays" in Jim's Jobs. Your clients are looked after by the network and waiting when you return.</p><div class="tag">WORK-LIFE BALANCE</div></div>
+    <div class="card"><div class="card-icon">💼</div><h3>A Genuine Asset</h3><p>Your franchise is a saleable business. Build it, grow it and sell it. Jim's assists with valuation, marketing and the legal process.</p><div class="tag">LONG TERM VALUE</div></div>
+    <div class="stats-band" style="margin-top:4px;">
       <div class="stat-item"><div class="num">4,000+</div><div class="lab">5-star reviews</div></div>
       <div class="stat-item"><div class="num">75K+</div><div class="lab">New clients / year</div></div>
       <div class="stat-item"><div class="num">20 yrs</div><div class="lab">Franchise term</div></div>
     </div>
   </div>
-</section>
+</div>
  
-<!-- ════════════════════════════════
-     SCREEN 3 — WHAT YOU GET
-════════════════════════════════ -->
-<section id="screen-get" class="screen">
-  <div class="sec-hero">
+<div class="sec-divider"></div>
+ 
+<!-- ══ WHAT YOU GET ══════════════════════════════ -->
+<div class="section">
+  <div class="sec-photo" style="position:relative;">
     <img src="electrical/assets/van_side.png" alt="Jim's Electrical van">
-    <div class="hero-label">What You Get</div>
+    <div class="sec-photo-label">What You Get</div>
   </div>
   <div class="sec-pad">
+    <div style="height:14px;"></div>
     <div class="sec-title">What You Get</div>
     <div class="accent-line"></div>
   </div>
   <div class="sec-body">
-    <div class="card"><div class="card-icon">📞</div><h3>National Call Centre — 131 546</h3><p>Every inbound enquiry captured, client details recorded, and leads routed directly to you. The phone is handled — you focus on the work.</p></div>
-    <div class="card"><div class="card-icon">🌐</div><h3>Your Own Web Presence & Digital Marketing</h3><p>Your own Jim's Electrical page, fully managed and SEO-optimised. Jim's invests in Google Ads, social media and review management so you don't have to.</p></div>
-    <div class="card"><div class="card-icon">📺</div><h3>National, State & Local Advertising</h3><p>TV, digital and local area campaigns managed centrally across all franchisees — delivering scale no individual operator could afford alone.</p></div>
-    <div class="card"><div class="card-icon">🖥️</div><h3>Jim's Jobs — Online Business Management</h3><p>The purpose-built app that manages leads, scheduling, invoicing and earnings tracking. Your business dashboard, on any device.</p></div>
-    <div class="card"><div class="card-icon">👥</div><h3>Team Support for Bigger Jobs</h3><p>Call on other franchisees to work together on larger commercial or residential projects — no extra fees, no complicated arrangements.</p></div>
+    <div class="card"><div class="card-icon">📞</div><h3>National Call Centre — 131 546</h3><p>Every inbound enquiry captured, client details recorded, leads routed directly to you. The phone is handled — you focus on the work.</p></div>
+    <div class="card"><div class="card-icon">🌐</div><h3>Your Own Web Presence & Digital Marketing</h3><p>Your own Jim's Electrical page, fully managed and SEO-optimised. Jim's invests in Google Ads, social media and review management.</p></div>
+    <div class="card"><div class="card-icon">📺</div><h3>National, State & Local Advertising</h3><p>TV, digital and local campaigns managed centrally — delivering scale no individual operator could afford alone.</p></div>
+    <div class="card"><div class="card-icon">🖥️</div><h3>Jim's Jobs — Online Business Management</h3><p>The purpose-built app for leads, scheduling, invoicing and earnings. Your business dashboard on any device.</p></div>
+    <div class="card"><div class="card-icon">👥</div><h3>Team Support for Bigger Jobs</h3><p>Call on other franchisees for larger commercial or residential projects — no extra fees, no complicated arrangements.</p></div>
     <div class="card"><div class="card-icon">📊</div><h3>Business Mentoring & Coaching</h3><p>Proactive monthly contact from your franchisor — business reviews, goal setting and performance coaching. You're never just a number.</p></div>
-    <div class="card"><div class="card-icon">⚙️</div><h3>Technical Support — 7 Days a Week</h3><p>Experienced electricians available every day of the week for technical advice, unusual fault diagnosis and compliance questions.</p></div>
-    <div class="card"><div class="card-icon">🏆</div><h3>National Conferences & Recognition</h3><p>Annual Jim's Group National Conferences for training, networking, awards and peer support. Franchisees who excel are recognised at both divisional and group level.</p></div>
-    <div class="card"><div class="card-icon">🛒</div><h3>Group Buying Discounts</h3><p>Access to trade discounts on tools, materials, vehicles and insurance via preferred supplier agreements across 5,000+ franchisees.</p></div>
-    <div class="card"><div class="card-icon">🔁</div><h3>Bring Your Existing Business</h3><p>Already running your own electrical business? Bring your existing client base and layer the Jim's brand, lead generation and infrastructure on top.</p></div>
+    <div class="card"><div class="card-icon">⚙️</div><h3>Technical Support — 7 Days a Week</h3><p>Experienced electricians available every day for technical advice, fault diagnosis and compliance questions.</p></div>
+    <div class="card"><div class="card-icon">🏆</div><h3>National Conferences & Recognition</h3><p>Annual Jim's Group Conferences for training, networking and awards. Franchisees who excel are recognised at divisional and group level.</p></div>
+    <div class="card"><div class="card-icon">🛒</div><h3>Group Buying Discounts</h3><p>Trade discounts on tools, materials, vehicles and insurance via preferred supplier agreements across 5,000+ franchisees.</p></div>
+    <div class="card"><div class="card-icon">🔁</div><h3>Bring Your Existing Business</h3><p>Already running your own business? Bring your client base and immediately layer Jim's brand, lead generation and infrastructure on top.</p></div>
   </div>
-</section>
+</div>
  
-<!-- ════════════════════════════════
-     SCREEN 4 — SERVICES
-════════════════════════════════ -->
-<section id="screen-services" class="screen">
+<div class="sec-divider"></div>
+ 
+<!-- ══ SERVICES ══════════════════════════════════ -->
+<div class="section">
   <div class="sec-pad">
     <div class="sec-title">What You'll Do</div>
     <div class="accent-line"></div>
-    <p style="font-size:13px;color:var(--text-item);margin-bottom:16px;line-height:1.6;">Jim's Electrical franchisees service both residential and commercial clients across a wide range of electrical work.</p>
   </div>
   <div class="sec-body">
-    <div style="font-size:11px;font-weight:900;color:var(--red-bright);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Residential Services</div>
+    <div class="sub-label">Residential Services</div>
     <div class="service-grid">
-      <div class="service-card"><div class="ico">⚡</div><div><h4>Switchboard Upgrades</h4><p>Safety switch installation, main switchboard replacement and meter upgrades</p></div></div>
-      <div class="service-card"><div class="ico">💡</div><div><h4>Lighting</h4><p>LED downlight upgrades, feature lighting, outdoor and sensor lights</p></div></div>
-      <div class="service-card"><div class="ico">🔌</div><div><h4>Power Points</h4><p>New GPO installation, USB outlets, outdoor power and garden lighting</p></div></div>
-      <div class="service-card"><div class="ico">🔥</div><div><h4>Ovens & Cooktops</h4><p>Supply and install, hardwire connections and rangehood wiring</p></div></div>
-      <div class="service-card"><div class="ico">🌡️</div><div><h4>Water Heaters</h4><p>Hot water system installation, replacement and timer upgrades</p></div></div>
-      <div class="service-card"><div class="ico">🏠</div><div><h4>Home Automation</h4><p>Smart home wiring, ceiling fans, dimmer switches and home theatre</p></div></div>
-      <div class="service-card"><div class="ico">🚨</div><div><h4>Smoke Detectors</h4><p>Hardwired and interconnected smoke alarm installation and compliance</p></div></div>
-      <div class="service-card"><div class="ico">🔐</div><div><h4>Safety Switches</h4><p>RCD installation, testing and replacement across all circuits</p></div></div>
-      <div class="service-card"><div class="ico">🌐</div><div><h4>Data & Comms</h4><p>Network cabling, TV points, phone lines and structured cabling</p></div></div>
-      <div class="service-card"><div class="ico">🔋</div><div><h4>Solar & EV</h4><p>Inverter installation, battery connections and EV charger supply and fit</p></div></div>
-      <div class="service-card"><div class="ico">🏊</div><div><h4>Pool & Outdoor</h4><p>Pool pump wiring, shed power, pergola lighting and outbuilding circuits</p></div></div>
-      <div class="service-card"><div class="ico">🏗️</div><div><h4>New Builds & Renos</h4><p>Rough-in, fit-off, inspections and certificate of compliance</p></div></div>
+      <div class="service-card"><div class="ico">⚡</div><h4>Switchboard Upgrades</h4><p>Safety switches, main board replacement, meter upgrades</p></div>
+      <div class="service-card"><div class="ico">💡</div><h4>Lighting</h4><p>LED downlights, feature lighting, outdoor & sensor lights</p></div>
+      <div class="service-card"><div class="ico">🔌</div><h4>Power Points</h4><p>New GPOs, USB outlets, outdoor power & garden lighting</p></div>
+      <div class="service-card"><div class="ico">🔥</div><h4>Ovens & Cooktops</h4><p>Supply & install, hardwire connections, rangehood wiring</p></div>
+      <div class="service-card"><div class="ico">🌡️</div><h4>Water Heaters</h4><p>Hot water system installation, replacement & timer upgrades</p></div>
+      <div class="service-card"><div class="ico">🏠</div><h4>Home Automation</h4><p>Smart home wiring, ceiling fans, dimmers & home theatre</p></div>
+      <div class="service-card"><div class="ico">🚨</div><h4>Smoke Detectors</h4><p>Hardwired & interconnected smoke alarm installation</p></div>
+      <div class="service-card"><div class="ico">🔐</div><h4>Safety Switches</h4><p>RCD installation, testing & replacement across all circuits</p></div>
+      <div class="service-card"><div class="ico">🌐</div><h4>Data & Comms</h4><p>Network cabling, TV points, phone lines & structured cabling</p></div>
+      <div class="service-card"><div class="ico">🔋</div><h4>Solar & EV</h4><p>Inverter install, battery connections & EV charger fit-off</p></div>
+      <div class="service-card"><div class="ico">🏊</div><h4>Pool & Outdoor</h4><p>Pool pump wiring, shed power & pergola lighting</p></div>
+      <div class="service-card"><div class="ico">🏗️</div><h4>New Builds & Renos</h4><p>Rough-in, fit-off, inspections & certificate of compliance</p></div>
     </div>
- 
-    <div style="font-size:11px;font-weight:900;color:var(--red-bright);text-transform:uppercase;letter-spacing:0.5px;margin:16px 0 10px;">Commercial Services</div>
-    <div class="card"><div class="card-icon">🚨</div><h3>Emergency & Beacon Lighting</h3><p>Exit and emergency lighting installation, testing and annual compliance checks. Legislation-driven recurring work with strong margins.</p></div>
-    <div class="card"><div class="card-icon">🔌</div><h3>Commercial Switchboard Upgrades</h3><p>Three-phase switchboard installation and upgrades for small commercial premises, retail fit-outs and light industrial tenancies.</p></div>
-    <div class="card"><div class="card-icon">🏢</div><h3>Retail & Office Fit-Outs</h3><p>New power, lighting and data infrastructure for commercial tenancies undergoing refurbishment or fit-out.</p></div>
-    <div class="card"><div class="card-icon">🔋</div><h3>Preventative Maintenance Contracts</h3><p>Ongoing agreements with strata managers and commercial building owners. Predictable, recurring monthly revenue.</p></div>
+    <div class="sub-label">Commercial Services</div>
+    <div class="card"><div class="card-icon">🚨</div><h3>Emergency & Beacon Lighting</h3><p>Exit and emergency lighting installation, testing and annual compliance checks. Legislation-driven, recurring work with strong margins.</p></div>
+    <div class="card"><div class="card-icon">🔌</div><h3>Commercial Switchboard Upgrades</h3><p>Three-phase switchboard installation for retail fit-outs and light industrial tenancies.</p></div>
+    <div class="card"><div class="card-icon">🏢</div><h3>Retail & Office Fit-Outs</h3><p>Power, lighting and data infrastructure for commercial tenancies undergoing refurbishment.</p></div>
+    <div class="card"><div class="card-icon">🔋</div><h3>Preventative Maintenance Contracts</h3><p>Ongoing agreements with strata managers and building owners. Predictable, recurring monthly revenue.</p></div>
   </div>
-</section>
+</div>
  
-<!-- ════════════════════════════════
-     SCREEN 5 — SUPPORT & TRAINING
-════════════════════════════════ -->
-<section id="screen-support" class="screen">
+<div class="sec-divider"></div>
+ 
+<!-- ══ SUPPORT & TRAINING ═════════════════════ -->
+<div class="section">
   <div class="sec-pad">
     <div class="sec-title">Support & Training</div>
     <div class="accent-line"></div>
   </div>
   <div class="sec-body">
-    <div style="font-size:11px;font-weight:900;color:var(--red-bright);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Your Training Pathway</div>
+    <div class="sub-label">Your Training Pathway</div>
+    <div class="step-card"><div class="step-num">1</div><div class="step-body"><h3>Jim's Group Induction Training</h3><p>2-day course at Jim's Group National Office in Melbourne. Covers the franchise system, Jim's Jobs platform and call centre lead distribution.</p><div class="step-pill">Melbourne — 2 days</div></div></div>
+    <div class="step-card"><div class="step-num">2</div><div class="step-body"><h3>On-Road Technical Training</h3><p>Hands-on time with experienced Jim's Electrical franchisees. Real-world workflows, quoting, client communication and time management.</p><div class="step-pill">Field-based — flexible timing</div></div></div>
+    <div class="step-card"><div class="step-num">3</div><div class="step-body"><h3>Business Development Training</h3><p>Ongoing education in sales, marketing, team management and financial management through webinars, workshops and coaching.</p><div class="step-pill">Ongoing — throughout your term</div></div></div>
+    <div class="step-card"><div class="step-num">4</div><div class="step-body"><h3>National Conferences & Events</h3><p>Annual Jim's Group National Conferences for training, product updates, networking and recognition. State meetups run throughout the year.</p><div class="step-pill">Annual</div></div></div>
  
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <div class="step-body"><h3>Jim's Group Induction Training</h3><p>2-day theoretical course at Jim's Group National Office in Melbourne. Covers the franchise system, Jim's Jobs platform and call centre lead distribution.</p><div class="step-pill">Melbourne — 2 days</div></div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <div class="step-body"><h3>On-Road Technical Training</h3><p>Hands-on time alongside experienced Jim's Electrical franchisees. Real-world workflows, quoting, client communication and time management.</p><div class="step-pill">Field-based — flexible timing</div></div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <div class="step-body"><h3>Business Development Training</h3><p>Ongoing education in sales, marketing, team management and financial management. Webinars, workshops and one-on-one coaching throughout your term.</p><div class="step-pill">Ongoing — throughout your term</div></div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">4</div>
-      <div class="step-body"><h3>National Conferences & Events</h3><p>Annual Jim's Group National Conferences for training, product updates, networking and recognition. State-based and divisional meetups also run throughout the year.</p><div class="step-pill">Annual</div></div>
-    </div>
- 
-    <div style="font-size:11px;font-weight:900;color:var(--red-bright);text-transform:uppercase;letter-spacing:0.5px;margin:16px 0 10px;">Ongoing Support</div>
-    <div class="support-block"><div class="ico">📞</div><div><h4>Technical Support — 7 Days a Week</h4><p>Access to experienced electricians for technical advice and compliance questions — every day, including weekends.</p></div></div>
-    <div class="support-block"><div class="ico">📊</div><div><h4>Proactive Business Mentoring</h4><p>Monthly proactive contact — reviewing performance, setting goals and identifying growth opportunities. Active support, not passive availability.</p></div></div>
-    <div class="support-block"><div class="ico">💻</div><div><h4>Jim's Jobs Platform</h4><p>Manages your leads, scheduling, invoicing and earnings tracking. Available on any device. Training and ongoing support included.</p></div></div>
+    <div class="sub-label">Ongoing Support</div>
+    <div class="support-block"><div class="ico">📞</div><div><h4>Technical Support — 7 Days a Week</h4><p>Access to experienced electricians for technical advice and compliance questions every day, including weekends.</p></div></div>
+    <div class="support-block"><div class="ico">📊</div><div><h4>Proactive Business Mentoring</h4><p>Monthly proactive contact from your franchisor — performance reviews, goal setting and identifying growth opportunities.</p></div></div>
+    <div class="support-block"><div class="ico">💻</div><div><h4>Jim's Jobs Platform</h4><p>Manages your leads, scheduling, invoicing and earnings. Available on any device. Training and ongoing support included.</p></div></div>
     <div class="support-block"><div class="ico">📣</div><div><h4>Marketing & Advertising Support</h4><p>National TV, Google Ads, social media and your own SEO-optimised web page — professionally managed on your behalf.</p></div></div>
-    <div class="support-block"><div class="ico">⚡</div><div><h4>Master Electricians Network</h4><p>Jim's Electrical membership of Master Electricians Australia gives you access to industry updates, compliance resources and peer networks.</p></div></div>
+    <div class="support-block"><div class="ico">⚡</div><div><h4>Master Electricians Network</h4><p>Access to industry updates, compliance resources and peer networks through Jim's Electrical's Master Electricians Australia membership.</p></div></div>
  
-    <div style="font-size:11px;font-weight:900;color:var(--red-bright);text-transform:uppercase;letter-spacing:0.5px;margin:16px 0 10px;">Scaling Your Business</div>
+    <div class="sub-label">Scaling Your Business</div>
     <div class="growth-card"><div class="ico">🚐</div><div><h4>Add Vans — No Extra Franchise Fee</h4><p>Each additional van generates revenue under the same agreement. No territory split, no extra royalties.</p></div></div>
-    <div class="growth-card"><div class="ico">👷</div><div><h4>Hire Staff — Keep the Margin</h4><p>Employ qualified electricians and apprentices under your franchise. Jim's Jobs handles scheduling and invoicing across your whole team.</p></div></div>
-    <div class="growth-card"><div class="ico">💰</div><div><h4>Build an Asset — Then Sell It</h4><p>Your Jim's Electrical franchise is a genuine, saleable business. Jim's assists with valuation, marketing and legal process when you're ready.</p></div></div>
+    <div class="growth-card"><div class="ico">👷</div><div><h4>Hire Staff — Keep the Margin</h4><p>Employ qualified electricians and apprentices. Jim's Jobs handles scheduling and invoicing across your whole team.</p></div></div>
+    <div class="growth-card"><div class="ico">💰</div><div><h4>Build an Asset — Then Sell It</h4><p>Your franchise is a genuine, saleable business. Jim's assists with valuation, marketing and legal process when you're ready.</p></div></div>
   </div>
-</section>
+</div>
  
-<!-- ════════════════════════════════
-     SCREEN 6 — DIY vs JIM'S
-════════════════════════════════ -->
-<section id="screen-compare" class="screen">
+<div class="sec-divider"></div>
+ 
+<!-- ══ COMPARE ═══════════════════════════════════ -->
+<div class="section">
   <div class="sec-pad">
     <div class="sec-title">DIY vs. Jim's</div>
     <div class="accent-line"></div>
   </div>
   <div class="sec-body">
-    <div class="card" style="margin-bottom:10px;">
-      <h3 style="color:#FF7070;margin-bottom:6px;">Going It Alone</h3>
-      <p>Building everything from scratch — finding your own clients, funding your own marketing, no safety net during slow periods. Many skilled electricians find the business side far harder than the trade side.</p>
-    </div>
-    <div class="card" style="margin-bottom:16px;">
-      <h3 style="color:#5DE0A0;margin-bottom:6px;">Jim's Electrical</h3>
-      <p>Infrastructure already built. Brand, call centre, marketing, lead distribution and a support network of thousands of franchisees. Your job is to deliver great electrical work — Jim's handles everything else.</p>
-    </div>
-    <p class="swipe-hint">← Scroll table horizontally →</p>
+    <div class="card" style="margin-bottom:8px;"><h3 style="color:#FF7070;margin-bottom:6px;">Going It Alone</h3><p>Finding your own clients, funding your own marketing, no safety net. Many skilled electricians find the business side far harder than the trade side.</p></div>
+    <div class="card" style="margin-bottom:14px;"><h3 style="color:#5DE0A0;margin-bottom:6px;">Jim's Electrical</h3><p>Infrastructure already built. Brand, call centre, marketing and a support network of thousands. Your job is great electrical work — Jim's handles everything else.</p></div>
+    <p class="swipe-hint">← Scroll table to see full comparison →</p>
     <div class="cmp-wrap">
       <table class="cmp-table">
         <thead><tr><td>Category</td><td>Going It Alone</td><td>Jim's Electrical</td></tr></thead>
         <tbody>
-          <tr><td class="cat">Brand</td><td class="solo">Build from nothing — years and significant spend</td><td class="good"><strong>30+ year brand</strong> with 94% national recognition.</td></tr>
-          <tr><td class="cat">Lead Generation</td><td class="solo">Find your own work — word of mouth, expensive ads</td><td class="good"><strong>Leads from day one</strong> via 131 546. 500K+ enquiries/year.</td></tr>
-          <tr><td class="cat">Marketing</td><td class="solo">Trial and error at your own cost</td><td class="good"><strong>National TV, digital & local campaigns</strong> — funded centrally.</td></tr>
-          <tr><td class="cat">Buying Power</td><td class="solo">Negotiate alone — limited leverage</td><td class="good"><strong>Group discounts</strong> via 5,000+ franchisee network.</td></tr>
-          <tr><td class="cat">Technical Support</td><td class="solo">On your own — no backup on tricky jobs</td><td class="good"><strong>7-day technical support</strong> from experienced electricians.</td></tr>
-          <tr><td class="cat">Business Support</td><td class="solo">No mentoring, no coaching</td><td class="good"><strong>Monthly proactive contact</strong>, reviews and coaching.</td></tr>
-          <tr><td class="cat">Work Guarantee</td><td class="solo">No guarantee of enquiries</td><td class="good"><strong>$2,000/week guarantee</strong> for eligible new franchisees.</td></tr>
-          <tr><td class="cat">Holidays</td><td class="solo">No work = no income</td><td class="good"><strong>"On Holidays" mode</strong> — clients managed, territory waiting.</td></tr>
-          <tr><td class="cat">Scaling</td><td class="solo">Adding vans or staff increases overheads significantly</td><td class="good"><strong>Add vans and staff freely</strong> — no additional franchise fees.</td></tr>
-          <tr><td class="cat">Exit Strategy</td><td class="solo">Value tied to your reputation — hard to sell</td><td class="good"><strong>A genuine, saleable asset</strong> with Jim's support to sell it.</td></tr>
+          <tr><td class="cat">Brand</td><td class="solo">Build from nothing — years and significant spend</td><td class="good"><strong>30+ year brand</strong> with 94% national recognition</td></tr>
+          <tr><td class="cat">Lead Generation</td><td class="solo">Find your own work — word of mouth, expensive ads</td><td class="good"><strong>Leads from day one</strong> via 131 546. 500K+ enquiries/year</td></tr>
+          <tr><td class="cat">Marketing</td><td class="solo">Trial and error at your own cost</td><td class="good"><strong>National TV, digital & local campaigns</strong> funded centrally</td></tr>
+          <tr><td class="cat">Buying Power</td><td class="solo">Negotiate alone — limited leverage</td><td class="good"><strong>Group discounts</strong> via 5,000+ franchisee network</td></tr>
+          <tr><td class="cat">Tech Support</td><td class="solo">On your own — no backup on tricky jobs</td><td class="good"><strong>7-day support</strong> from experienced electricians</td></tr>
+          <tr><td class="cat">Biz Support</td><td class="solo">No mentoring, no coaching</td><td class="good"><strong>Monthly proactive contact</strong>, reviews and coaching</td></tr>
+          <tr><td class="cat">Work Guarantee</td><td class="solo">No guarantee of enquiries</td><td class="good"><strong>$2,000/week guarantee</strong> for eligible new franchisees</td></tr>
+          <tr><td class="cat">Holidays</td><td class="solo">No work = no income</td><td class="good"><strong>"On Holidays" mode</strong> — clients managed, territory waiting</td></tr>
+          <tr><td class="cat">Scaling</td><td class="solo">More vans = significantly more overheads</td><td class="good"><strong>Add vans and staff freely</strong> — no additional fees</td></tr>
+          <tr><td class="cat">Exit</td><td class="solo">Value tied to your reputation — hard to sell</td><td class="good"><strong>Genuine saleable asset</strong> with Jim's support to sell</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="card">
-      <p style="font-size:13px;line-height:1.65;color:var(--text-item);">The case for Jim's isn't just about the leads — it's about removing the risk of going it alone while keeping all the upside of business ownership. <strong style="color:#fff;">You bring the trade skills. Jim's brings everything else.</strong></p>
-    </div>
+    <div class="card"><p style="font-size:13px;line-height:1.65;color:var(--text-item);">The case for Jim's isn't just about the leads — it's about removing the risk of going it alone while keeping all the upside. <strong style="color:#fff;">You bring the trade skills. Jim's brings everything else.</strong></p></div>
   </div>
-</section>
+</div>
  
-<!-- ════════════════════════════════
-     SCREEN 7 — INVESTMENT
-════════════════════════════════ -->
-<section id="screen-invest" class="screen">
+<div class="sec-divider"></div>
+ 
+<!-- ══ INVESTMENT ═════════════════════════════════ -->
+<div class="section">
   <div class="sec-pad">
     <div class="sec-title">Your Investment</div>
     <div class="accent-line"></div>
-    <p style="font-size:13px;color:var(--text-item);margin-bottom:16px;line-height:1.6;">A fully transparent breakdown of every cost involved in starting your Jim's Electrical franchise. No hidden fees.</p>
+    <p style="font-size:13px;color:var(--text-item);line-height:1.6;margin-bottom:4px;">A fully transparent breakdown of every cost. No hidden fees.</p>
   </div>
   <div class="sec-body">
     <div class="inv-section">
@@ -533,7 +426,6 @@ body {
       <p class="footnote">A 24-month payment plan is available — see below.</p>
       <div class="inv-total"><div class="lbl">Total Territory</div><div class="amt">$14,764.18</div></div>
     </div>
- 
     <div class="inv-section">
       <div class="inv-label">② Start-Up Package</div>
       <div class="inv-line"><span>Vehicle Signage</span><span>$5,350.00</span></div>
@@ -543,9 +435,8 @@ body {
       <div class="inv-line"><span>Training Transfers (Melbourne)</span><span>$355.00</span></div>
       <div class="inv-line"><span>Training Airfares *</span><span>$600.00</span></div>
       <div class="inv-total"><div class="lbl">Total Start-Up</div><div class="amt">$8,135.00</div></div>
-      <p class="footnote" style="margin-top:8px;">*Non-Victorian franchisees only (~$600). Victorian franchisees: $7,535.00</p>
+      <p class="footnote" style="margin-top:8px;">*Non-Victorian franchisees only. Victorian franchisees: $7,535.00</p>
     </div>
- 
     <div class="inv-section">
       <div class="inv-label">③ Jim's Group Set-Up Fees</div>
       <div class="inv-line"><span>Generic Training Course</span><span>$582.00</span></div>
@@ -554,36 +445,28 @@ body {
       <div class="inv-line"><span>National Warranty Fund</span><span>$953.82</span></div>
       <div class="inv-total"><div class="lbl">Total Set-Up Fees</div><div class="amt">$2,700.82</div></div>
     </div>
- 
     <div class="summary-grid">
       <div class="summary-item"><div class="lbl">Cost to Set Up the Franchise</div><div class="val">$10,835.82</div></div>
       <div class="summary-item"><div class="lbl">Cost to Buy the Territory</div><div class="val">$14,764.18</div></div>
-      <div class="summary-item highlight"><div class="lbl">Total Investment</div><div class="val" style="font-size:26px;">$25,600.00</div></div>
+      <div class="summary-item highlight"><div class="lbl">Total Investment</div><div class="val" style="font-size:24px;">$25,600.00</div></div>
     </div>
- 
     <div class="plan-box">
       <div class="plan-num">$500<span>per month</span></div>
-      <div>
-        <h4>Optional 24-Month Payment Plan</h4>
-        <p>Spread the territory fee over 24 monthly instalments of $500. A deposit applies. Speak to your franchisor for full details.</p>
-      </div>
+      <div><h4>Optional 24-Month Payment Plan</h4><p>Spread the territory fee over 24 monthly instalments of $500. A deposit applies. Speak to your franchisor for full details.</p></div>
     </div>
- 
-    <div style="font-size:11px;font-weight:900;color:var(--red-bright);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">④ Monthly Fees (Once Trading)</div>
-    <div class="monthly-grid">
-      <div class="monthly-item"><div class="lbl">Advertising, Franchisor & Call Centre Support (incl. Monthly Warranty Fund)</div><div class="val">$1,427.69</div></div>
-      <div class="monthly-item"><div class="lbl">Technology & Communication (incl. text & email services)</div><div class="val">$45.60</div></div>
-      <div class="monthly-item"><div class="lbl">Master Electricians Membership</div><div class="val">$96.25</div></div>
-      <div class="monthly-item"><div class="lbl">Per Lead Fee (new clients, first call only)</div><div class="val">$27.50</div></div>
-    </div>
-    <p class="footnote">Fixed monthly fees — never a percentage of your turnover. Self-generated work has no lead fees. Prices current as at January 2026 and subject to change.</p>
+    <div class="sub-label" style="margin-top:4px;">④ Monthly Fees (Once Trading)</div>
+    <div class="monthly-item"><div class="lbl">Advertising, Franchisor & Call Centre Support (incl. Monthly Warranty Fund)</div><div class="val">$1,427.69</div></div>
+    <div class="monthly-item"><div class="lbl">Technology & Communication (incl. text & email services)</div><div class="val">$45.60</div></div>
+    <div class="monthly-item"><div class="lbl">Master Electricians Membership</div><div class="val">$96.25</div></div>
+    <div class="monthly-item"><div class="lbl">Per Lead Fee (new clients, first call only)</div><div class="val">$27.50</div></div>
+    <p class="footnote">Fixed monthly fees — never a percentage of turnover. Self-generated work has no lead fees. Prices current as at January 2026.</p>
   </div>
-</section>
+</div>
  
-<!-- ════════════════════════════════
-     SCREEN 8 — FAQs
-════════════════════════════════ -->
-<section id="screen-faq" class="screen">
+<div class="sec-divider"></div>
+ 
+<!-- ══ FAQs ══════════════════════════════════════ -->
+<div class="section">
   <div class="sec-pad">
     <div class="sec-title">FAQs</div>
     <div class="accent-line"></div>
@@ -591,80 +474,75 @@ body {
   <div class="sec-body">
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to be a licensed electrician?<span class="chevron">▾</span></button><div class="faq-a">Yes — a current Australian electrician's licence is required. Jim's Electrical is a trade franchise, not a management franchise. You bring the skills; Jim's brings the brand, leads and support infrastructure.</div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I bring my existing clients?<span class="chevron">▾</span></button><div class="faq-a">Absolutely. You can bring your existing client base and benefit from the Jim's brand, lead generation and support immediately. Many franchisees join specifically to get out of the marketing grind they're currently in.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Where can I work?<span class="chevron">▾</span></button><div class="faq-a">You have a defined territory, but you can set and adjust your work zones at any time via Jim's Jobs. You can also accept leads outside your territory if you choose — the system is flexible.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the work guarantee work?<span class="chevron">▾</span></button><div class="faq-a">Eligible new franchisees can claim up to $2,000/week if their earnings fall below that threshold during the guarantee period — subject to compliance, availability and lead acceptance. See the franchise agreement for full conditions.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I hire staff or add more vans?<span class="chevron">▾</span></button><div class="faq-a">Yes — and this is one of Jim's biggest advantages. You can scale your team and fleet without paying additional franchise fees. Jim's Jobs manages job allocation and invoicing across your whole operation.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Where can I work?<span class="chevron">▾</span></button><div class="faq-a">You have a defined territory, but you can set and adjust your work zones at any time via Jim's Jobs. You can also accept leads outside your territory — the system is flexible.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the work guarantee work?<span class="chevron">▾</span></button><div class="faq-a">Eligible new franchisees can claim up to $2,000/week if earnings fall below that threshold during the guarantee period — subject to compliance, availability and lead acceptance. See the franchise agreement for full conditions.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I hire staff or add more vans?<span class="chevron">▾</span></button><div class="faq-a">Yes — you can scale your team and fleet without paying additional franchise fees. Jim's Jobs manages job allocation and invoicing across your whole operation.</div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if I want to take a holiday?<span class="chevron">▾</span></button><div class="faq-a">Simply set your status to "On Holidays" in Jim's Jobs. The call centre routes leads elsewhere while you're away and returns them when you're back. You don't lose your clients — they wait for you.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long is the franchise term?<span class="chevron">▾</span></button><div class="faq-a">20 years, with an option to renew at no additional cost. It's a long-term commitment designed to give you the security to build a real business — not a short-term licence.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if I want to sell my franchise?<span class="chevron">▾</span></button><div class="faq-a">Jim's Electrical will assist with the entire sale process — valuation, marketing to prospective buyers, and preparation of legal documentation. Your franchise is a genuine, saleable asset that grows in value as you build it.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long is the franchise term?<span class="chevron">▾</span></button><div class="faq-a">20 years, with an option to renew at no additional cost. Designed to give you the security to build a real business — not a short-term licence.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if I want to sell my franchise?<span class="chevron">▾</span></button><div class="faq-a">Jim's Electrical will assist with the entire sale process — valuation, marketing to prospective buyers, and legal documentation. Your franchise is a genuine, saleable asset that grows in value as you build it.</div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there enough work?<span class="chevron">▾</span></button><div class="faq-a">Jim's Electrical services 4,000+ jobs per month nationally with 500,000+ inbound enquiries per year. New franchisees consistently report leads coming in from week one.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What ongoing fees do I pay?<span class="chevron">▾</span></button><div class="faq-a">Fixed monthly fees covering advertising/franchisor/call centre support ($1,427.69), technology ($45.60), and Master Electricians membership ($96.25). Plus $27.50 per new client lead — first call only. Self-generated work is free.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What ongoing fees do I pay?<span class="chevron">▾</span></button><div class="faq-a">Fixed monthly fees: Advertising/Franchisor/Call Centre ($1,427.69), Technology ($45.60), Master Electricians Membership ($96.25). Plus $27.50 per new client lead — first call only. Self-generated work is free.</div></div>
   </div>
-</section>
+</div>
  
-<!-- ════════════════════════════════
-     SCREEN 9 — FRANCHISEE STORIES
-════════════════════════════════ -->
-<section id="screen-stories" class="screen">
+<div class="sec-divider"></div>
+ 
+<!-- ══ FRANCHISEE STORIES ═════════════════════════ -->
+<div class="section">
   <div class="sec-pad">
     <div class="sec-title">Hear From Our Franchisees</div>
     <div class="accent-line"></div>
   </div>
   <div class="sec-body">
     <div class="story-card">
-      <div class="story-photo"><img src="electrical/assets/harry.png" alt="Harry Binakis"></div>
+      <a href="https://youtu.be/SzVPhOE5oEM" target="_blank" style="display:block;">
+        <div class="story-photo"><img src="electrical/assets/harry.png" alt="Harry Binakis"></div>
+      </a>
       <div class="story-body">
         <div class="story-name">Harry Binakis</div>
         <div class="story-loc">Jim's Electrical Reservoir, VIC</div>
         <div class="story-quote">"The first week I started with Jim's I was off and running — and for 3 years now I've just been flat out every day."</div>
         <div class="story-qr">
-          <img src="electrical/assets/qr_harry.png" alt="QR Code">
-          <div class="story-qr-text">
-            <div class="title">▶ Watch Harry's Story</div>
-            <div class="sub">Scan to view on YouTube</div>
-          </div>
+          <img src="electrical/assets/qr_harry.png" alt="QR">
+          <div><div class="title">▶ Watch Harry's Story</div><div class="sub">Scan or tap photo to view on YouTube</div></div>
         </div>
       </div>
     </div>
- 
     <div class="story-card">
-      <div class="story-photo"><img src="electrical/assets/chris.png" alt="Chris Hutt"></div>
+      <a href="https://youtu.be/2xluICgE8LE" target="_blank" style="display:block;">
+        <div class="story-photo"><img src="electrical/assets/chris.png" alt="Chris Hutt"></div>
+      </a>
       <div class="story-body">
         <div class="story-name">Chris Hutt</div>
         <div class="story-loc">Jim's Electrical Doreen, VIC</div>
         <div class="story-quote">"Signing up to Jim's is my get out of jail free card. All the advertising, the marketing — it's a massive part of the business taken away that I don't need to worry about."</div>
         <div class="story-qr">
-          <img src="electrical/assets/qr_chris.png" alt="QR Code">
-          <div class="story-qr-text">
-            <div class="title">▶ Watch Chris's Story</div>
-            <div class="sub">Scan to view on YouTube</div>
-          </div>
+          <img src="electrical/assets/qr_chris.png" alt="QR">
+          <div><div class="title">▶ Watch Chris's Story</div><div class="sub">Scan or tap photo to view on YouTube</div></div>
         </div>
       </div>
     </div>
- 
     <div class="story-card">
-      <div class="story-photo"><img src="electrical/assets/mat.png" alt="Mat Richardson"></div>
+      <a href="https://youtu.be/a1wnMowec0k" target="_blank" style="display:block;">
+        <div class="story-photo"><img src="electrical/assets/mat.png" alt="Mat Richardson"></div>
+      </a>
       <div class="story-body">
         <div class="story-name">Mat Richardson</div>
         <div class="story-loc">Jim's Electrical Lilydale, VIC</div>
         <div class="story-quote">"When you can't fill the book, you just turn the leads on, generate some income and fill out the week. It's good steady business, great income."</div>
         <div class="story-qr">
-          <img src="electrical/assets/qr_mat.png" alt="QR Code">
-          <div class="story-qr-text">
-            <div class="title">▶ Watch Mat's Story</div>
-            <div class="sub">Scan to view on YouTube</div>
-          </div>
+          <img src="electrical/assets/qr_mat.png" alt="QR">
+          <div><div class="title">▶ Watch Mat's Story</div><div class="sub">Scan or tap photo to view on YouTube</div></div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
  
-<!-- ════════════════════════════════
-     SCREEN 10 — WHAT'S NEXT / CONTACT
-════════════════════════════════ -->
-<section id="screen-contact" class="screen">
+<div class="sec-divider"></div>
+ 
+<!-- ══ WHAT'S NEXT / CONTACT ══════════════════════ -->
+<div class="section">
   <div class="sec-pad">
     <div class="sec-title">What's Next?</div>
     <div class="accent-line"></div>
@@ -672,88 +550,60 @@ body {
   <div class="sec-body">
     <div class="next-box">
       <h3>Ready to find out more?</h3>
-      <p>We'd love to continue the conversation — whether you're ready to commit or just starting to explore your options, there's no pressure and no obligation.</p>
-      <p>New prospective franchisees are welcome to a Jim's "Day on the Road" — spend a day in the field with an experienced Jim's Electrical franchisee and see exactly what the business looks like before you decide.</p>
+      <p>There's no pressure and no obligation — whether you're ready to commit or just starting to explore your options, we'd love to chat.</p>
+      <p>New prospective franchisees are welcome to a Jim's "Day on the Road" — spend a day with an experienced Jim's Electrical franchisee and see the business in action before you decide.</p>
     </div>
- 
     <div class="step-card"><div class="step-num">1</div><div class="step-body"><h3>Get in Touch</h3><p>Call or email Cameron or Miles — we'll answer your questions and help you understand if Jim's Electrical is the right fit.</p></div></div>
-    <div class="step-card"><div class="step-num">2</div><div class="step-body"><h3>Day on the Road</h3><p>Spend a day with a working Jim's Electrical franchisee — no cost, no obligation. See the business in action and ask the real questions.</p></div></div>
+    <div class="step-card"><div class="step-num">2</div><div class="step-body"><h3>Day on the Road</h3><p>Spend a day with a working franchisee — no cost, no obligation. See the business in action and ask the real questions.</p></div></div>
     <div class="step-card"><div class="step-num">3</div><div class="step-body"><h3>Review the Agreement</h3><p>Receive the full franchise agreement and disclosure documents. Take your time and seek independent legal and financial advice.</p></div></div>
  
-    <div style="font-size:11px;font-weight:900;color:var(--red-bright);text-transform:uppercase;letter-spacing:0.5px;margin:16px 0 10px;">Your Franchisors</div>
- 
+    <div class="sub-label">Your Franchisors</div>
     <div class="profile-card">
       <div class="profile-photo"><img src="electrical/assets/cameron.png" alt="Cameron Scott"></div>
       <div class="profile-info">
         <div class="profile-name">Cameron Scott</div>
         <div class="profile-role">Divisional Franchisor</div>
         <div class="profile-bio">Serving as Franchisor since 2007 across Jim's Antennas Perth and Jim's Electrical. Background in business administration, marketing, sales and financial advice.</div>
-        <div class="contact-detail"><span class="ico">📞</span><a href="tel:0439995000">0439 995 000</a></div>
-        <div class="contact-detail"><span class="ico">✉️</span><a href="mailto:cameron.scott@jimselectrical.com.au">cameron.scott@jimselectrical.com.au</a></div>
+        <div class="contact-row"><span class="ico">📞</span><a href="tel:0439995000">0439 995 000</a></div>
+        <div class="contact-row"><span class="ico">✉️</span><a href="mailto:cameron.scott@jimselectrical.com.au">cameron.scott@jimselectrical.com.au</a></div>
       </div>
     </div>
- 
     <div class="profile-card">
       <div class="profile-photo"><img src="electrical/assets/miles.png" alt="Miles Parkinson"></div>
       <div class="profile-info">
         <div class="profile-name">Miles Parkinson</div>
         <div class="profile-role">Divisional Franchisor</div>
-        <div class="profile-bio">Brings deep technical expertise to the role and serves as Head Lecturer of Electrical Trades at Mt Druitt TAFE NSW — an invaluable resource for franchisees on-the-tools.</div>
-        <div class="contact-detail"><span class="ico">📞</span><a href="tel:0407491686">0407 491 686</a></div>
-        <div class="contact-detail"><span class="ico">✉️</span><a href="mailto:miles.parkinson@jimselectrical.com.au">miles.parkinson@jimselectrical.com.au</a></div>
+        <div class="profile-bio">Brings deep technical expertise to the role and serves as Head Lecturer of Electrical Trades at Mt Druitt TAFE NSW — an invaluable resource for franchisees on the tools.</div>
+        <div class="contact-row"><span class="ico">📞</span><a href="tel:0407491686">0407 491 686</a></div>
+        <div class="contact-row"><span class="ico">✉️</span><a href="mailto:miles.parkinson@jimselectrical.com.au">miles.parkinson@jimselectrical.com.au</a></div>
       </div>
     </div>
- 
-    <div style="text-align:center; padding:16px 0 8px;">
+    <div style="text-align:center;padding:20px 0 4px;">
       <div style="font-size:12px;color:var(--text-dim);margin-bottom:4px;">www.jimselectrical.com.au</div>
       <div style="font-size:11px;color:var(--text-dim);">© Jim's Electrical — A Division of Jim's Group</div>
     </div>
   </div>
-</section>
+</div>
  
-<!-- ════════════════════════════════
-     BOTTOM TAB BAR
-════════════════════════════════ -->
-<nav class="tab-bar">
-  <button class="tab-btn active" onclick="showScreen('home', this)"><span class="tab-ico">🏠</span>Home</button>
-  <button class="tab-btn" onclick="showScreen('why', this)"><span class="tab-ico">⭐</span>Why Jim's</button>
-  <button class="tab-btn" onclick="showScreen('get', this)"><span class="tab-ico">🎁</span>What You Get</button>
-  <button class="tab-btn" onclick="showScreen('services', this)"><span class="tab-ico">⚡</span>Services</button>
-  <button class="tab-btn" onclick="showScreen('support', this)"><span class="tab-ico">🛠️</span>Support</button>
-  <button class="tab-btn" onclick="showScreen('compare', this)"><span class="tab-ico">⚖️</span>Compare</button>
-  <button class="tab-btn" onclick="showScreen('invest', this)"><span class="tab-ico">💰</span>Invest</button>
-  <button class="tab-btn" onclick="showScreen('faq', this)"><span class="tab-ico">❓</span>FAQs</button>
-  <button class="tab-btn" onclick="showScreen('stories', this)"><span class="tab-ico">🎥</span>Stories</button>
-  <button class="tab-btn" onclick="showScreen('contact', this)"><span class="tab-ico">📞</span>Contact</button>
-</nav>
- 
-<!-- ════════════════════════════════
-     STICKY CTA BAR
-════════════════════════════════ -->
-<div class="cta-bar">
-  <a href="tel:131546" class="cta-btn"><span class="ico">📞</span> Call 131 546</a>
-  <a href="mailto:cameron.scott@jimselectrical.com.au" class="cta-btn"><span class="ico">✉️</span> Email Cameron</a>
+<!-- ══ STICKY BOTTOM BAR ══════════════════════════ -->
+<div class="bottom-bar">
+  <div class="bar-info">
+    <div class="bar-name">Cameron Scott</div>
+    <div class="bar-role">Divisional Franchisor</div>
+  </div>
+  <div class="bar-actions">
+    <a href="tel:0439995000" class="bar-btn call"><span class="ico">📞</span> Call</a>
+    <a href="mailto:cameron.scott@jimselectrical.com.au" class="bar-btn email"><span class="ico">✉️</span> Email</a>
+  </div>
 </div>
  
 <script>
-function showScreen(id, btn) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('screen-' + id).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo(0, 0);
-}
- 
 function toggleFaq(btn) {
   const answer = btn.nextElementSibling;
   const isOpen = btn.classList.contains('open');
-  // close all
   document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
   document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
-  if (!isOpen) {
-    btn.classList.add('open');
-    answer.classList.add('open');
-  }
+  if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
 }
 </script>
 </body>
